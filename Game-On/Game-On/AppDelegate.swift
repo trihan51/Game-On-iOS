@@ -7,14 +7,24 @@
 //
 
 import UIKit
+import Parse
+import Bolts
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+ 
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        // Initialize Parse.
+        let configuration = ParseClientConfiguration {
+            $0.applicationId = "duemHXnG4aocoONNNIEQLevZ7MyLAvqWSSFlBnpW"
+            // $0.server = "http://YOUR_PARSE_SERVER:1337/parse"
+            $0.clientKey = "Conlzrgvh0WbBVQgV7c0VIjqlEIcxUNSi4iwmzyW"
+        }
+        Parse.initializeWithConfiguration(configuration)
         // Override point for customization after application launch.
         return true
     }
@@ -43,4 +53,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 }
+
 
