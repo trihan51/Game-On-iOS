@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class LoginViewController: UIViewController{
+class LoginViewController: UIViewController, UITextFieldDelegate{
     
     @IBOutlet weak var emailAddress: UITextField!
     @IBOutlet weak var passwordField: UITextField!
@@ -31,6 +31,10 @@ class LoginViewController: UIViewController{
         }
     }
     
+    override func viewDidLoad() {
+        self.passwordField.delegate = self;
+    }
+    
     func login()
     {
         var email = emailAddress.text
@@ -49,7 +53,10 @@ class LoginViewController: UIViewController{
         }
 
     }
-    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
     
     
     

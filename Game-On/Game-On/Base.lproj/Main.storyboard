@@ -300,21 +300,60 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wMY-hi-T5k">
-                                <rect key="frame" x="263" y="239" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wMY-hi-T5k">
+                                <rect key="frame" x="273" y="28" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="28" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="QBA-bk-aau">
+                                <rect key="frame" x="32" y="57" width="525" height="474"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="28" id="g9Y-q0-hXQ" customClass="CustomJoinCell" customModule="Game_On" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="525" height="28"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="g9Y-q0-hXQ" id="dJG-zP-rCU">
+                                            <rect key="frame" x="0.0" y="0.0" width="525" height="27"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rse-8x-fG9">
+                                                    <rect key="frame" x="31" y="8" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="rse-8x-fG9" secondAttribute="bottom" constant="-10" id="gXl-jv-Ooc"/>
+                                                <constraint firstItem="rse-8x-fG9" firstAttribute="top" secondItem="dJG-zP-rCU" secondAttribute="topMargin" id="qrN-SB-IWX"/>
+                                                <constraint firstItem="rse-8x-fG9" firstAttribute="leading" secondItem="dJG-zP-rCU" secondAttribute="leadingMargin" constant="23" id="uaV-m1-Igo"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="boardGameName" destination="rse-8x-fG9" id="Q8D-jh-7oV"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="GwA-BK-8gf" id="TFq-oD-odh"/>
+                                    <outlet property="delegate" destination="GwA-BK-8gf" id="CMT-8d-7u4"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="wMY-hi-T5k" firstAttribute="centerX" secondItem="Qti-G7-eXp" secondAttribute="centerX" id="K2g-mO-vVX"/>
-                            <constraint firstItem="wMY-hi-T5k" firstAttribute="top" secondItem="zl7-l7-7Lw" secondAttribute="bottom" constant="219" id="oqc-h0-CIf"/>
+                            <constraint firstItem="QBA-bk-aau" firstAttribute="centerX" secondItem="wMY-hi-T5k" secondAttribute="centerX" id="AuB-J5-CdS"/>
+                            <constraint firstItem="wMY-hi-T5k" firstAttribute="centerX" secondItem="Qti-G7-eXp" secondAttribute="centerX" constant="-6" id="K2g-mO-vVX"/>
+                            <constraint firstItem="QBA-bk-aau" firstAttribute="leading" secondItem="Qti-G7-eXp" secondAttribute="leadingMargin" constant="12" id="NOc-ql-L4M"/>
+                            <constraint firstItem="biR-BD-otU" firstAttribute="top" secondItem="QBA-bk-aau" secondAttribute="bottom" constant="20" id="ZOL-jX-B1t"/>
+                            <constraint firstItem="wMY-hi-T5k" firstAttribute="top" secondItem="zl7-l7-7Lw" secondAttribute="bottom" constant="8" id="oqc-h0-CIf"/>
+                            <constraint firstItem="QBA-bk-aau" firstAttribute="top" secondItem="wMY-hi-T5k" secondAttribute="bottom" constant="8" symbolic="YES" id="yFE-BH-qZR"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Join" id="ydz-T0-owo" userLabel="Join"/>
                     <connections>
+                        <outlet property="tableView" destination="QBA-bk-aau" id="Y54-EK-hSQ"/>
                         <outlet property="testLabel" destination="wMY-hi-T5k" id="WJP-fM-apJ"/>
                     </connections>
                 </viewController>
@@ -397,21 +436,60 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KP3-u3-OaQ">
-                                <rect key="frame" x="285" y="202" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KP3-u3-OaQ">
+                                <rect key="frame" x="279" y="28" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="EER-jp-vcn">
+                                <rect key="frame" x="36" y="57" width="527" height="476"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell1" id="buH-JG-YZN" customClass="CustomJoinCell" customModule="Game_On" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="527" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="buH-JG-YZN" id="5EQ-tQ-FEO">
+                                            <rect key="frame" x="0.0" y="0.0" width="527" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7lq-oD-tUi">
+                                                    <rect key="frame" x="42" y="8" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="7lq-oD-tUi" firstAttribute="top" secondItem="5EQ-tQ-FEO" secondAttribute="topMargin" id="ABq-Ke-uhH"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="7lq-oD-tUi" secondAttribute="bottom" constant="6" id="mMR-zb-ZbA"/>
+                                                <constraint firstItem="7lq-oD-tUi" firstAttribute="leading" secondItem="5EQ-tQ-FEO" secondAttribute="leadingMargin" constant="34" id="yYu-w4-lFs"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="boardGameName2" destination="7lq-oD-tUi" id="6gv-Zs-aYE"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Mhj-7x-aGU" id="pXU-FK-scT"/>
+                                    <outlet property="delegate" destination="Mhj-7x-aGU" id="Ja5-YU-eAA"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="KP3-u3-OaQ" firstAttribute="top" secondItem="gLu-jn-sj4" secondAttribute="bottom" constant="182" id="JHb-N2-86w"/>
+                            <constraint firstItem="KP3-u3-OaQ" firstAttribute="top" secondItem="gLu-jn-sj4" secondAttribute="bottom" constant="8" id="JHb-N2-86w"/>
+                            <constraint firstItem="EER-jp-vcn" firstAttribute="centerX" secondItem="KP3-u3-OaQ" secondAttribute="centerX" id="XAU-CW-hee"/>
+                            <constraint firstItem="16m-3z-mYI" firstAttribute="top" secondItem="EER-jp-vcn" secondAttribute="bottom" constant="18" id="YBh-1f-qD7"/>
+                            <constraint firstItem="EER-jp-vcn" firstAttribute="leading" secondItem="svG-8r-9l6" secondAttribute="leadingMargin" constant="16" id="biW-Wa-ORR"/>
+                            <constraint firstItem="EER-jp-vcn" firstAttribute="top" secondItem="KP3-u3-OaQ" secondAttribute="bottom" constant="8" symbolic="YES" id="irf-Ys-QDc"/>
                             <constraint firstItem="KP3-u3-OaQ" firstAttribute="centerX" secondItem="svG-8r-9l6" secondAttribute="centerX" id="vg1-M5-1Xl"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Host" id="RrG-an-5BT"/>
                     <connections>
+                        <outlet property="tableView" destination="EER-jp-vcn" id="ESL-8m-pfr"/>
                         <outlet property="testLabel" destination="KP3-u3-OaQ" id="ctH-eJ-8WN"/>
                     </connections>
                 </viewController>

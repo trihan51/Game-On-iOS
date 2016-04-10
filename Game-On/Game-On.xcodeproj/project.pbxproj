@@ -29,6 +29,7 @@
 		4EE81ABD1CA0923F006FC89B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EE81ABC1CA0923F006FC89B /* Assets.xcassets */; };
 		4EE81AC01CA0923F006FC89B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EE81ABE1CA0923F006FC89B /* LaunchScreen.storyboard */; };
 		4EE81AC81CA098FF006FC89B /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE81AC71CA098FF006FC89B /* RegisterViewController.swift */; };
+		4EF3DD131CB36E7C00C61A37 /* CustomJoinCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF3DD121CB36E7C00C61A37 /* CustomJoinCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		4EE81ABF1CA0923F006FC89B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4EE81AC11CA0923F006FC89B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = "Game-On/Info.plist"; sourceTree = "<group>"; };
 		4EE81AC71CA098FF006FC89B /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterViewController.swift; path = "Game-On/RegisterViewController.swift"; sourceTree = "<group>"; };
+		4EF3DD121CB36E7C00C61A37 /* CustomJoinCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomJoinCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				4E9AD69D1CB1FA150028573C /* LoginViewController.swift */,
 				4EE81AC71CA098FF006FC89B /* RegisterViewController.swift */,
 				4EE81AB91CA0923F006FC89B /* Main.storyboard */,
+				4EF3DD121CB36E7C00C61A37 /* CustomJoinCell.swift */,
 				4E9AD69F1CB1FE970028573C /* ProfileViewController.swift */,
 				4E9AD6A11CB1FEA60028573C /* HostGameViewController.swift */,
 				4E9AD6A31CB1FEB10028573C /* JoinGameViewController.swift */,
@@ -167,6 +170,7 @@
 				TargetAttributes = {
 					4EE81AB11CA0923F006FC89B = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = 39Q6799377;
 					};
 				};
 			};
@@ -208,6 +212,7 @@
 			files = (
 				4E9AD69E1CB1FA150028573C /* LoginViewController.swift in Sources */,
 				4EE81AC81CA098FF006FC89B /* RegisterViewController.swift in Sources */,
+				4EF3DD131CB36E7C00C61A37 /* CustomJoinCell.swift in Sources */,
 				4E9AD6A21CB1FEA60028573C /* HostGameViewController.swift in Sources */,
 				4E9AD6A01CB1FE970028573C /* ProfileViewController.swift in Sources */,
 				4EE81AB81CA0923F006FC89B /* ViewController.swift in Sources */,
@@ -327,6 +332,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Game-On",
@@ -335,6 +342,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ttpm.Game-On";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -342,6 +350,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Game-On",
@@ -350,6 +360,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ttpm.Game-On";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
