@@ -24,6 +24,7 @@
 		4E9AD6A21CB1FEA60028573C /* HostGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9AD6A11CB1FEA60028573C /* HostGameViewController.swift */; };
 		4E9AD6A41CB1FEB10028573C /* JoinGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9AD6A31CB1FEB10028573C /* JoinGameViewController.swift */; };
 		4EB9B4E11CBC9E4F00B2D5F8 /* GameOnSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB9B4E01CBC9E4F00B2D5F8 /* GameOnSession.swift */; };
+		4EB9B4E31CBCCDE200B2D5F8 /* AnotherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB9B4E21CBCCDE200B2D5F8 /* AnotherViewController.swift */; };
 		4EE81AB61CA0923F006FC89B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE81AB51CA0923F006FC89B /* AppDelegate.swift */; };
 		4EE81AB81CA0923F006FC89B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE81AB71CA0923F006FC89B /* ViewController.swift */; };
 		4EE81ABB1CA0923F006FC89B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EE81AB91CA0923F006FC89B /* Main.storyboard */; };
@@ -51,6 +52,7 @@
 		4E9AD6A11CB1FEA60028573C /* HostGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HostGameViewController.swift; path = "Game-On/HostGameViewController.swift"; sourceTree = "<group>"; };
 		4E9AD6A31CB1FEB10028573C /* JoinGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JoinGameViewController.swift; path = "Game-On/JoinGameViewController.swift"; sourceTree = "<group>"; };
 		4EB9B4E01CBC9E4F00B2D5F8 /* GameOnSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOnSession.swift; sourceTree = "<group>"; };
+		4EB9B4E21CBCCDE200B2D5F8 /* AnotherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnotherViewController.swift; sourceTree = "<group>"; };
 		4EE81AB21CA0923F006FC89B /* Game-On.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Game-On.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EE81AB51CA0923F006FC89B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "Game-On/AppDelegate.swift"; sourceTree = "<group>"; };
 		4EE81AB71CA0923F006FC89B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = "Game-On/ViewController.swift"; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				4E9AD6A11CB1FEA60028573C /* HostGameViewController.swift */,
 				4EB9B4E01CBC9E4F00B2D5F8 /* GameOnSession.swift */,
 				4E9AD6A31CB1FEB10028573C /* JoinGameViewController.swift */,
+				4EB9B4E21CBCCDE200B2D5F8 /* AnotherViewController.swift */,
 				4EE81ABC1CA0923F006FC89B /* Assets.xcassets */,
 				4EE81ABE1CA0923F006FC89B /* LaunchScreen.storyboard */,
 				4EE81AC11CA0923F006FC89B /* Info.plist */,
@@ -219,6 +222,7 @@
 				4EF3DD131CB36E7C00C61A37 /* CustomJoinCell.swift in Sources */,
 				4E9AD6A21CB1FEA60028573C /* HostGameViewController.swift in Sources */,
 				4E9AD6A01CB1FE970028573C /* ProfileViewController.swift in Sources */,
+				4EB9B4E31CBCCDE200B2D5F8 /* AnotherViewController.swift in Sources */,
 				4EE81AB81CA0923F006FC89B /* ViewController.swift in Sources */,
 				4EE81AB61CA0923F006FC89B /* AppDelegate.swift in Sources */,
 				4E9AD6A41CB1FEB10028573C /* JoinGameViewController.swift in Sources */,

@@ -18,7 +18,7 @@ class JoinGameViewController: UIViewController, UITableViewDelegate, UITableView
     var chessArray = [PFObject]()
     var monopolyArray = [PFObject]()
     var settlersArray = [PFObject]()
-    var splendorArray = [PFObject]()
+     var splendorArray = [PFObject]()
     var werewolfArray = [PFObject]()
     
     
@@ -34,12 +34,16 @@ class JoinGameViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
+        self.splendorArray = [PFObject]()
         testLabel.text = "Join An Open Game Screen"
-        queryData()
+       // queryData()
         
         
         
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        self.splendorArray = [PFObject]()
     }
     
     
@@ -64,6 +68,8 @@ class JoinGameViewController: UIViewController, UITableViewDelegate, UITableView
                     self.tableView.reloadData()
                    
                 }
+                print(self.splendorArray.count)
+                print(self.chessArray.count)
                 print("success", testArray.count)
             }else{
                 print("no success")
@@ -75,6 +81,7 @@ class JoinGameViewController: UIViewController, UITableViewDelegate, UITableView
     
     func filterGameResults(game:PFObject)
     {
+       
         //Game Object is given, check if it matches a certain game title, then
        var gameID = game["gameTitle"]
         
@@ -93,6 +100,8 @@ class JoinGameViewController: UIViewController, UITableViewDelegate, UITableView
         else if (gameID as! String == "Splendor")
         {
             splendorArray.append(game)
+            //splendorTest(<#T##game: PFObject##PFObject#>)
+            //splendorArray = [game]
         }
         else if(gameID as! String == "One Night Ultimate Werewolf")
         {
@@ -107,6 +116,17 @@ class JoinGameViewController: UIViewController, UITableViewDelegate, UITableView
             
        
     }
+    
+    /*
+    func splendorTest(game:PFObject)->[PFObject]
+    {
+        var splendorArray = [PFObject]()
+        
+        splendorArray.append(game)
+        
+        return splendorArray
+        
+    }*/
     
     //check if array is empty
     func countGames(array: [PFObject])->Bool
@@ -130,6 +150,8 @@ class JoinGameViewController: UIViewController, UITableViewDelegate, UITableView
         return gameTypes.count
     }*/
     
+    
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = self.tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! CustomJoinCell
@@ -148,6 +170,39 @@ class JoinGameViewController: UIViewController, UITableViewDelegate, UITableView
         
         return cell
         
+    }
+    
+ 
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        enum gameRide{
+            case Splendor
+            case Monopoly
+            case Chess
+            case Settlers
+        }
+        let row = indexPath.row
+        let arr = setUpView()
+        let stringy = arr[row]
+        
+       if (stringy == "Splendor")
+       {
+          performSegueWithIdentifier("joinGameSegue", sender: self)
+        }
+        
+        
+        
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+       
+        if(segue.identifier == "joinGameSegue") {
+            
+            var vc = segue.destinationViewController as! AnotherViewController
+            vc.passedArray = splendorArray
+            
+        }
     }
     
     func setUpView()-> [String]
@@ -180,11 +235,18 @@ class JoinGameViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
+        self.splendorArray = [PFObject]()
+        self.chessArray = [PFObject]()
+        self.monopolyArray = [PFObject]()
+        self.settlersArray = [PFObject]()
+        self.werewolfArray = [PFObject]()
         
         queryData()
-        print("view was reloaded")
+        print("view was loaded & reloaded")
         
     }
+    
+    
    
     
     
