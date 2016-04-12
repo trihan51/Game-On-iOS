@@ -195,6 +195,7 @@
                         <outlet property="userFirstName" destination="1vK-Wh-auk" id="fWo-aq-Fzm"/>
                         <outlet property="userLastName" destination="jLy-BB-aSy" id="wIG-gX-5PQ"/>
                         <outlet property="userPassword" destination="ngU-YE-gqg" id="ZFq-Sh-Y7s"/>
+                        <outlet property="userPassword2" destination="gbY-zV-exP" id="sB6-sT-oS2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sPu-Ja-Gw8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -499,7 +500,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="c4f-HS-Y5w"/>
         <segue reference="9uQ-kp-2WE"/>
+        <segue reference="98z-UZ-2hZ"/>
     </inferredMetricsTieBreakers>
 </document>

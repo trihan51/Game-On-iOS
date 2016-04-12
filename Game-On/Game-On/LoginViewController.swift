@@ -33,6 +33,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
     
     override func viewDidLoad() {
         self.passwordField.delegate = self;
+        self.emailAddress.delegate=self;
     }
     
     func login()
@@ -53,11 +54,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
         }
 
     }
+    
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
     }
-    
     
     
     
