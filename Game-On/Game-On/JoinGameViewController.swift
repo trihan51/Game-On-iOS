@@ -13,7 +13,17 @@ class JoinGameViewController: UIViewController, UITableViewDelegate, UITableView
     
     var gameNames = [String]()
     var test = ["manny", "sam", "bob"]
+    var gameTypes = ["Monopoly", "Chess", "Settlers of Catan", "Splendor", "Werewolf"]
     
+    var chessArray = [PFObject]()
+    var monopolyArray = [PFObject]()
+    var settlersArray = [PFObject]()
+    var splendorArray = [PFObject]()
+    var werewolfArray = [PFObject]()
+    
+    
+    
+   
     
     @IBOutlet weak var testLabel: UILabel!
    
@@ -32,8 +42,12 @@ class JoinGameViewController: UIViewController, UITableViewDelegate, UITableView
         
     }
     
+    
+    
     func queryData()
     {
+        var testArray = [PFObject]()
+        
         var query = PFQuery(className: "GameOnSession")
         query.whereKey("Open", equalTo: true)
         query.orderByAscending("createdAt")
@@ -43,12 +57,14 @@ class JoinGameViewController: UIViewController, UITableViewDelegate, UITableView
             {
                 if let games = games {
                     for game in games {
-                        self.gameNames.append(game["gameTitle"] as! String)
+                        //self.gameNames.append((game["gameTitle"] as? String)!)
+                        testArray.append(game)
+                        self.filterGameResults(game)
                     }
                     self.tableView.reloadData()
-                    print(self.gameNames)
+                   
                 }
-                print("success", games?.count)
+                print("success", testArray.count)
             }else{
                 print("no success")
             }
@@ -57,21 +73,118 @@ class JoinGameViewController: UIViewController, UITableViewDelegate, UITableView
 
     }
     
+    func filterGameResults(game:PFObject)
+    {
+        //Game Object is given, check if it matches a certain game title, then
+       var gameID = game["gameTitle"]
+        
+        if (gameID as! String == "Chess")
+        {
+            chessArray.append(game)
+        }
+        else if ( gameID as! String == "Monopoly")
+        {
+            monopolyArray.append(game)
+        }
+        else if (gameID as! String == "Settlers of Catan")
+        {
+            settlersArray.append(game)
+        }
+        else if (gameID as! String == "Splendor")
+        {
+            splendorArray.append(game)
+        }
+        else if(gameID as! String == "One Night Ultimate Werewolf")
+        {
+            werewolfArray.append(game)
+        }
+       
+         //print(chessArray)
+         //print(monopolyArray)
+        //print(settlersArray)
+        
+            
+            
+       
+    }
+    
+    //check if array is empty
+    func countGames(array: [PFObject])->Bool
+    {
+        if (array.count > 0)
+        {
+            return true
+        }
+        else{
+            return false
+        }
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-               return gameNames.count
+        let two = setUpView()
+               return two.count
     }
+    
+    /*func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return gameTypes.count
+    }*/
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = self.tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! CustomJoinCell
         
-        cell.boardGameName?.text = gameNames[indexPath.row]
+      
+        //let test2 = settlersArray[indexPath.row]
+        
+        
+        //cell.boardGameName?.text = test2["gameTitle"] as? String
+        
+        
+        let oneTwo = setUpView()
+        
+            cell.boardGameName?.text = oneTwo[indexPath.row]
+        
         
         return cell
         
     }
     
+    func setUpView()-> [String]
+    {
+        var existss = [String]()
+        if (countGames(chessArray) == true)
+        {
+            existss.append("Chess")
+        }
+        if (countGames(monopolyArray) == true)
+        {
+            existss.append("Monopoly")
+        }
+        if (countGames(splendorArray) == true)
+        {
+            existss.append("Splendor")
+        }
+        if (countGames(werewolfArray) == true)
+        {
+            existss.append("Werewolf")
+        }
+        if (countGames(settlersArray) == true)
+        {
+            existss.append("Settlers of Catan")
+        }
+        
+        return existss
+        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(true)
+        
+        queryData()
+        print("view was reloaded")
+        
+    }
    
     
     

@@ -18,6 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
+        //register Subclasses
+        GameOnSession.registerSubclass()
+        
         // Initialize Parse.
         let configuration = ParseClientConfiguration {
             $0.applicationId = "duemHXnG4aocoONNNIEQLevZ7MyLAvqWSSFlBnpW"
