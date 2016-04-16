@@ -9,9 +9,11 @@
 import UIKit
 import Parse
 
-class AnotherViewController: UIViewController {
+class AnotherViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var BackButton: UIButton!
+    
     var passedArray = [PFObject]()
 
     
@@ -26,5 +28,18 @@ class AnotherViewController: UIViewController {
         }
     }
     
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return passedArray.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell = self.tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! CustomJoinCell
+        
+        cell.specificSession?.text = passedArray[indexPath.row].objectId
+        
+        return cell
+
+    }
     
 }

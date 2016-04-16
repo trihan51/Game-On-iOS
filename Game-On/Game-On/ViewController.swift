@@ -22,7 +22,19 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        var currentUser = PFUser.currentUser()
+        if currentUser != nil {
+            //do stuff
+            performSegueWithIdentifier("alreadyLoggedIn", sender: self)
+            
+        } else {
+            //show signup or login
+        }
+    }
     
+   
 
 }
 

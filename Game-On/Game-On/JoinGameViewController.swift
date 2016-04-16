@@ -13,14 +13,15 @@ class JoinGameViewController: UIViewController, UITableViewDelegate, UITableView
     
     var gameNames = [String]()
     var test = ["manny", "sam", "bob"]
-    var gameTypes = ["Monopoly", "Chess", "Settlers of Catan", "Splendor", "Werewolf"]
+    var gameTypes = ["Monopoly", "Chess", "Settlers of Catan", "Splendor", "Werewolf", "Checkers", "Caverna: The Cave Farmers"]
     
     var chessArray = [PFObject]()
     var monopolyArray = [PFObject]()
     var settlersArray = [PFObject]()
      var splendorArray = [PFObject]()
     var werewolfArray = [PFObject]()
-    
+    var checkersArray = [PFObject]()
+    var cavernaArray = [PFObject]()
     
     
    
@@ -68,9 +69,7 @@ class JoinGameViewController: UIViewController, UITableViewDelegate, UITableView
                     self.tableView.reloadData()
                    
                 }
-                print(self.splendorArray.count)
-                print(self.chessArray.count)
-                print("success", testArray.count)
+                
             }else{
                 print("no success")
             }
@@ -106,6 +105,14 @@ class JoinGameViewController: UIViewController, UITableViewDelegate, UITableView
         else if(gameID as! String == "One Night Ultimate Werewolf")
         {
             werewolfArray.append(game)
+        }
+        else if(gameID as! String == "Checkers")
+        {
+            checkersArray.append(game)
+        }
+        else if(gameID as! String == "Caverna: The Cave Farmers")
+        {
+            cavernaArray.append(game)
         }
        
          //print(chessArray)
@@ -191,6 +198,30 @@ class JoinGameViewController: UIViewController, UITableViewDelegate, UITableView
           performSegueWithIdentifier("joinGameSegue", sender: self)
         }
         
+        if (stringy == "Monopoly")
+        {
+            performSegueWithIdentifier("joinGameSegue", sender: self)
+        }
+        if (stringy == "Chess")
+        {
+            performSegueWithIdentifier("joinGameSegue", sender: self)
+        }
+        if (stringy == "Settlers of Catan")
+        {
+            performSegueWithIdentifier("joinGameSegue", sender: self)
+        }
+        if (stringy == "Werewolf")
+        {
+            performSegueWithIdentifier("joinGameSegue", sender: self)
+        }
+        if (stringy == "Checkers")
+        {
+            performSegueWithIdentifier("joinGameSegue", sender: self)
+        }
+        if (stringy == "Caverna: The Cave Farmers")
+        {
+            performSegueWithIdentifier("joinGameSegue", sender: self)
+        }
         
         
     }
@@ -200,7 +231,8 @@ class JoinGameViewController: UIViewController, UITableViewDelegate, UITableView
         if(segue.identifier == "joinGameSegue") {
             
             var vc = segue.destinationViewController as! AnotherViewController
-            vc.passedArray = splendorArray
+            vc.passedArray = checkersArray
+            vc.passedArray = cavernaArray
             
         }
     }
@@ -228,6 +260,14 @@ class JoinGameViewController: UIViewController, UITableViewDelegate, UITableView
         {
             existss.append("Settlers of Catan")
         }
+        if (countGames(checkersArray) == true)
+        {
+            existss.append("Checkers")
+        }
+        if (countGames(cavernaArray) == true)
+        {
+            existss.append("Caverna: The Cave Farmers")
+        }
         
         return existss
         
@@ -240,6 +280,8 @@ class JoinGameViewController: UIViewController, UITableViewDelegate, UITableView
         self.monopolyArray = [PFObject]()
         self.settlersArray = [PFObject]()
         self.werewolfArray = [PFObject]()
+        self.checkersArray = [PFObject]()
+        self.cavernaArray = [PFObject]()
         
         queryData()
         print("view was loaded & reloaded")

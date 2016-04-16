@@ -49,6 +49,9 @@
                             <constraint firstItem="5ch-MJ-OvU" firstAttribute="top" secondItem="0lj-Xx-4Ny" secondAttribute="bottom" constant="51" id="gO8-qG-atc"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <segue destination="EdD-Rg-Ou2" kind="show" identifier="alreadyLoggedIn" id="nW1-G4-dvi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -309,7 +312,7 @@
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="28" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="QBA-bk-aau">
                                 <rect key="frame" x="32" y="57" width="525" height="474"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="28" id="g9Y-q0-hXQ" customClass="CustomJoinCell" customModule="Game_On" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="525" height="28"/>
@@ -321,7 +324,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rse-8x-fG9">
                                                     <rect key="frame" x="31" y="8" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -446,7 +449,7 @@
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="EER-jp-vcn">
                                 <rect key="frame" x="36" y="57" width="527" height="476"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell1" id="buH-JG-YZN" customClass="CustomJoinCell" customModule="Game_On" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="527" height="44"/>
@@ -458,7 +461,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7lq-oD-tUi">
                                                     <rect key="frame" x="42" y="8" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -515,7 +518,7 @@
                                 <rect key="frame" x="40" y="68" width="540" height="460"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="45" id="l8r-h5-NDg">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="45" id="l8r-h5-NDg" customClass="CustomJoinCell" customModule="Game_On" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="540" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="l8r-h5-NDg" id="D3b-BV-EtE">
@@ -525,7 +528,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q3Y-w9-2R1">
                                                     <rect key="frame" x="33" y="8" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -535,12 +538,19 @@
                                                 <constraint firstItem="Q3Y-w9-2R1" firstAttribute="top" secondItem="D3b-BV-EtE" secondAttribute="topMargin" id="ibe-NN-fdc"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="specificSession" destination="Q3Y-w9-2R1" id="cdK-yk-aXK"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="9BT-gW-Zlb" id="1P8-3t-5X9"/>
+                                    <outlet property="delegate" destination="9BT-gW-Zlb" id="OED-Wp-htk"/>
+                                </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qp5-hh-LkL">
-                                <rect key="frame" x="40" y="35" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qp5-hh-LkL">
+                                <rect key="frame" x="46" y="35" width="34" height="30"/>
+                                <state key="normal" title="Back"/>
                                 <connections>
                                     <segue destination="EdD-Rg-Ou2" kind="show" id="3jO-uJ-rjS"/>
                                 </connections>
@@ -557,6 +567,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Wwd-Do-h3K"/>
+                    <connections>
+                        <outlet property="tableView" destination="7dm-xE-SsD" id="kUl-eH-ERG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rab-AV-xXF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -565,6 +578,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="3jO-uJ-rjS"/>
-        <segue reference="98z-UZ-2hZ"/>
+        <segue reference="JOa-xM-BVJ"/>
     </inferredMetricsTieBreakers>
 </document>
