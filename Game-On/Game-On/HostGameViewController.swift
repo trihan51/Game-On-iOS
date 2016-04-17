@@ -8,23 +8,42 @@
 
 import UIKit
 import Parse
+import CoreLocation
 
-class HostGameViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class HostGameViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
     var gameNames = [String]()
     
+    let locationManager = CLLocationManager()
+    
     @IBOutlet weak var testLabel: UILabel!
+    
+    var geoPointOfHost = PFGeoPoint()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         testLabel.text = "Host view screen"
         queryData()
+        
+        locationManager.delegate = self
+        locationManager.requestAlwaysAuthorization()
+        self.locationManager.requestWhenInUseAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled(){
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+        }else {
+            print ("location not enabled")
+        }
+        
+        
     }
-    
-    
+
+   
     
     func queryData()
     {
@@ -63,5 +82,42 @@ class HostGameViewController: UIViewController, UITableViewDataSource, UITableVi
         return cell
         
     }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+       
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        let currentUser = PFUser.currentUser()
+       
+        //let row = indexPath.row
+        //let arr = setUpView()
+        //let stringy = arr[row]
+        let gameToCreate = gameNames[indexPath.row]
+        var newHostedGame = PFObject(className:"GameOnSession")
+        newHostedGame["gameTitle"] = gameToCreate
+        newHostedGame["Open"] = true
+        newHostedGame["host"] = currentUser
+        newHostedGame["location"] = geoPointOfHost
+        newHostedGame.saveInBackgroundWithBlock { (success: Bool, error: NSError?) in
+            if (success)
+            {
+                print("game successfully created!")
+            } else {
+                print("error created this new session")
+            }
+        }
+        
+       
+        
+        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        var currLocation = locationManager.location
+        geoPointOfHost = PFGeoPoint(location:currLocation)
+        print("location recaptured")
+
+    }
+
     
 }

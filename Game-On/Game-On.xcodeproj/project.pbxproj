@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E3F1EEE1CC2FE640058ED05 /* SessionPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3F1EED1CC2FE640058ED05 /* SessionPageViewController.swift */; };
 		4E9AD6871CB1EF8B0028573C /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E9AD6851CB1EF8B0028573C /* Bolts.framework */; };
 		4E9AD6881CB1EF8B0028573C /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E9AD6861CB1EF8B0028573C /* Parse.framework */; };
 		4E9AD68A1CB1EFCA0028573C /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E9AD6891CB1EFCA0028573C /* AudioToolbox.framework */; };
@@ -35,6 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4E3F1EED1CC2FE640058ED05 /* SessionPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionPageViewController.swift; sourceTree = "<group>"; };
 		4E9AD6851CB1EF8B0028573C /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		4E9AD6861CB1EF8B0028573C /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		4E9AD6891CB1EFCA0028573C /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -115,6 +117,7 @@
 				4E9AD69D1CB1FA150028573C /* LoginViewController.swift */,
 				4EE81AC71CA098FF006FC89B /* RegisterViewController.swift */,
 				4EE81AB91CA0923F006FC89B /* Main.storyboard */,
+				4E3F1EED1CC2FE640058ED05 /* SessionPageViewController.swift */,
 				4EF3DD121CB36E7C00C61A37 /* CustomJoinCell.swift */,
 				4E9AD69F1CB1FE970028573C /* ProfileViewController.swift */,
 				4E9AD6A11CB1FEA60028573C /* HostGameViewController.swift */,
@@ -218,6 +221,7 @@
 			files = (
 				4E9AD69E1CB1FA150028573C /* LoginViewController.swift in Sources */,
 				4EE81AC81CA098FF006FC89B /* RegisterViewController.swift in Sources */,
+				4E3F1EEE1CC2FE640058ED05 /* SessionPageViewController.swift in Sources */,
 				4EB9B4E11CBC9E4F00B2D5F8 /* GameOnSession.swift in Sources */,
 				4EF3DD131CB36E7C00C61A37 /* CustomJoinCell.swift in Sources */,
 				4E9AD6A21CB1FEA60028573C /* HostGameViewController.swift in Sources */,
