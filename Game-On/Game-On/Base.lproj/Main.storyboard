@@ -310,14 +310,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="28" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="QBA-bk-aau">
-                                <rect key="frame" x="32" y="57" width="525" height="474"/>
+                                <rect key="frame" x="0.0" y="57" width="600" height="494"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="28" id="g9Y-q0-hXQ" customClass="CustomJoinCell" customModule="Game_On" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="525" height="28"/>
+                                        <rect key="frame" x="0.0" y="50" width="600" height="28"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="g9Y-q0-hXQ" id="dJG-zP-rCU">
-                                            <rect key="frame" x="0.0" y="0.0" width="525" height="27"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="27"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rse-8x-fG9">
@@ -346,10 +346,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="QBA-bk-aau" firstAttribute="centerX" secondItem="wMY-hi-T5k" secondAttribute="centerX" id="AuB-J5-CdS"/>
+                            <constraint firstItem="QBA-bk-aau" firstAttribute="centerX" secondItem="wMY-hi-T5k" secondAttribute="centerX" constant="6" id="AuB-J5-CdS"/>
                             <constraint firstItem="wMY-hi-T5k" firstAttribute="centerX" secondItem="Qti-G7-eXp" secondAttribute="centerX" constant="-6" id="K2g-mO-vVX"/>
-                            <constraint firstItem="QBA-bk-aau" firstAttribute="leading" secondItem="Qti-G7-eXp" secondAttribute="leadingMargin" constant="12" id="NOc-ql-L4M"/>
-                            <constraint firstItem="biR-BD-otU" firstAttribute="top" secondItem="QBA-bk-aau" secondAttribute="bottom" constant="20" id="ZOL-jX-B1t"/>
+                            <constraint firstItem="QBA-bk-aau" firstAttribute="leading" secondItem="Qti-G7-eXp" secondAttribute="leadingMargin" constant="-20" id="NOc-ql-L4M"/>
+                            <constraint firstItem="biR-BD-otU" firstAttribute="top" secondItem="QBA-bk-aau" secondAttribute="bottom" id="ZOL-jX-B1t"/>
                             <constraint firstItem="wMY-hi-T5k" firstAttribute="top" secondItem="zl7-l7-7Lw" secondAttribute="bottom" constant="8" id="oqc-h0-CIf"/>
                             <constraint firstItem="QBA-bk-aau" firstAttribute="top" secondItem="wMY-hi-T5k" secondAttribute="bottom" constant="8" symbolic="YES" id="yFE-BH-qZR"/>
                         </constraints>
@@ -377,13 +377,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hiu-BN-nqF">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hiu-BN-nqF">
                                 <rect key="frame" x="290" y="248" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eZb-Nu-48x">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eZb-Nu-48x">
                                 <rect key="frame" x="285" y="310" width="48" height="30"/>
                                 <state key="normal" title="Logout"/>
                                 <connections>
@@ -391,18 +391,31 @@
                                     <segue destination="BYZ-38-t0r" kind="presentation" id="c4f-HS-Y5w"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HOu-dH-5OW">
+                                <rect key="frame" x="175" y="129" width="269" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="269" id="BS2-Ye-myL"/>
+                                    <constraint firstAttribute="height" constant="21" id="PNN-3D-ru1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="hiu-BN-nqF" firstAttribute="top" secondItem="zXg-4n-Bsi" secondAttribute="bottom" constant="228" id="0H5-cV-a4M"/>
-                            <constraint firstItem="eZb-Nu-48x" firstAttribute="centerX" secondItem="oru-P6-8AV" secondAttribute="centerX" id="SRb-W5-hR8"/>
+                            <constraint firstItem="HOu-dH-5OW" firstAttribute="top" secondItem="zXg-4n-Bsi" secondAttribute="bottom" constant="109" id="Qbp-UJ-tuo"/>
+                            <constraint firstItem="eZb-Nu-48x" firstAttribute="centerX" secondItem="oru-P6-8AV" secondAttribute="centerX" constant="9" id="SRb-W5-hR8"/>
+                            <constraint firstItem="HOu-dH-5OW" firstAttribute="leading" secondItem="eZb-Nu-48x" secondAttribute="leading" constant="-110" id="St0-n8-UQ0"/>
                             <constraint firstItem="eZb-Nu-48x" firstAttribute="top" secondItem="hiu-BN-nqF" secondAttribute="bottom" constant="41" id="TCL-nb-lSh"/>
-                            <constraint firstItem="hiu-BN-nqF" firstAttribute="centerX" secondItem="oru-P6-8AV" secondAttribute="centerX" id="mbD-oC-zZf"/>
+                            <constraint firstItem="hiu-BN-nqF" firstAttribute="centerX" secondItem="oru-P6-8AV" secondAttribute="centerX" constant="11" id="mbD-oC-zZf"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" id="EQl-ip-u5F"/>
                     <connections>
                         <outlet property="testLabel" destination="hiu-BN-nqF" id="2Ez-S9-53i"/>
+                        <outlet property="userInfolabel" destination="HOu-dH-5OW" id="eQw-hH-DM5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="erm-iH-GlH" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -708,7 +721,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ITX-gk-Pzt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2180" y="-91"/>
+            <point key="canvasLocation" x="1906" y="-317"/>
         </scene>
         <!--Session Page View Controller-->
         <scene sceneID="hQx-RO-g6f">
@@ -818,6 +831,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="VPa-eD-5lf"/>
-        <segue reference="98z-UZ-2hZ"/>
+        <segue reference="c4f-HS-Y5w"/>
     </inferredMetricsTieBreakers>
 </document>

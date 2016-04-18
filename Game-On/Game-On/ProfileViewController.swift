@@ -12,6 +12,8 @@ import Parse
 class ProfileViewController: UIViewController{
     
     @IBOutlet weak var testLabel: UILabel!
+    @IBOutlet weak var userInfolabel: UILabel!
+    var currentUser = PFUser.currentUser()
     
     @IBAction func logOut(sender: AnyObject) {
         
@@ -23,6 +25,7 @@ class ProfileViewController: UIViewController{
        
     override func viewDidLoad() {
                testLabel.text = "Profile view screen"
+            userInfolabel.text = "User logged in is:" + (currentUser?.username)!
        
         
       
