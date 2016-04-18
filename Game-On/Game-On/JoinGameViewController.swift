@@ -261,6 +261,11 @@ class JoinGameViewController: UIViewController, UITableViewDelegate, UITableView
             {
                 vc.passedArray = werewolfArray
             }
+            else if (chosenSessions == "Caverna: The Cave Farmers")
+            {
+                vc.passedArray = cavernaArray
+            }
+          
             
            
         }

@@ -19,6 +19,39 @@ class SessionPageViewController: UIViewController, UITableViewDataSource, UITabl
     
     @IBOutlet weak var gameTitle: UILabel!
     
+    @IBAction func leaveButton(sender: AnyObject) {
+        
+        var currUser = PFUser.currentUser()?.objectId
+        var query = PFQuery(className: "GameOnSession")
+        query.whereKey("objectId", equalTo:(passedInObjectId?.objectId)!)
+        query.findObjectsInBackgroundWithBlock { (object:[PFObject]?, error:NSError?) in
+            if error == nil{
+                var sessionToLeaveFrom = object![0]
+                var stringArray = [String]()
+                stringArray = sessionToLeaveFrom["participants"] as! [String]
+                
+                for items in stringArray
+                {
+                    if items == currUser
+                    {
+                        let index1 = stringArray.indexOf(currUser!)
+                        stringArray.removeAtIndex(index1!)
+                    }
+                }
+                self.passedInObjectId!["participants"] = stringArray
+                
+                self.passedInObjectId?.saveInBackground()
+                
+            } else {
+                
+            }
+        }
+       
+        print("leave button clicked")
+        
+        
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,6 +62,7 @@ class SessionPageViewController: UIViewController, UITableViewDataSource, UITabl
         let hostObjectID = hosty.objectId
         print(hosty.objectId)
         queryAdditionalHostInfo(hosty)
+        gameTitle.text = passedInObjectId!["gameTitle"] as! String
         //hostName.text = "Host: \(hostObjectID!)"
         //let HostAdditional = queryAdditionalHostInfo(hosty)
         //var username = String()

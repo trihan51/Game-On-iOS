@@ -70,6 +70,20 @@ class AnotherViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         chosenOne = passedArray[indexPath.row]
         
+        var arrayOfCurrUser = [String]()
+        var currUser = PFUser.currentUser()?.objectId
+        
+        arrayOfCurrUser = chosenOne!["participants"] as! [String]
+        arrayOfCurrUser.append(currUser!)
+        
+        //print(arrayOfCurrUser[0])
+        
+        chosenOne!["participants"] = arrayOfCurrUser
+        
+        chosenOne?.saveInBackground()
+        
+        
+        print(chosenOne)
         
         performSegueWithIdentifier("joinGameSessionSegue", sender: self)
         

@@ -589,9 +589,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X4r-cL-z1X">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Game Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X4r-cL-z1X">
                                 <rect key="frame" x="45" y="20" width="83" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -636,12 +636,20 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Host:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UQg-Bj-R9v">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Host:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UQg-Bj-R9v">
                                 <rect key="frame" x="45" y="49" width="41" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="auX-M4-3JR">
+                                <rect key="frame" x="500" y="20" width="51" height="30"/>
+                                <state key="normal" title="[Leave]"/>
+                                <connections>
+                                    <action selector="leaveButton:" destination="e0T-NK-izN" eventType="touchUpInside" id="RzD-j9-6b0"/>
+                                    <segue destination="EdD-Rg-Ou2" kind="show" id="wWu-lr-h76"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -649,6 +657,8 @@
                             <constraint firstItem="UQg-Bj-R9v" firstAttribute="top" secondItem="X4r-cL-z1X" secondAttribute="bottom" constant="8" id="IYB-Ie-XHe"/>
                             <constraint firstItem="X4r-cL-z1X" firstAttribute="leading" secondItem="GWT-fn-x0n" secondAttribute="leadingMargin" constant="25" id="Q5x-Rb-HZV"/>
                             <constraint firstItem="X4r-cL-z1X" firstAttribute="top" secondItem="5DM-lN-qWl" secondAttribute="bottom" id="U7t-Yh-m6Q"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="auX-M4-3JR" secondAttribute="trailing" constant="29" id="WFJ-zx-3DH"/>
+                            <constraint firstItem="auX-M4-3JR" firstAttribute="top" secondItem="X4r-cL-z1X" secondAttribute="top" id="ctK-ft-0v3"/>
                             <constraint firstItem="OAa-jM-hkl" firstAttribute="top" secondItem="UQg-Bj-R9v" secondAttribute="bottom" constant="8" id="fxU-q9-sVg"/>
                             <constraint firstItem="qvB-mw-RT7" firstAttribute="top" secondItem="OAa-jM-hkl" secondAttribute="bottom" constant="195" id="kMW-MD-ERR"/>
                             <constraint firstItem="OAa-jM-hkl" firstAttribute="leading" secondItem="GWT-fn-x0n" secondAttribute="leading" id="syt-hv-9DH"/>
@@ -667,7 +677,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="wWu-lr-h76"/>
         <segue reference="JOa-xM-BVJ"/>
-        <segue reference="3jO-uJ-rjS"/>
     </inferredMetricsTieBreakers>
 </document>
