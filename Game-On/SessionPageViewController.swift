@@ -19,6 +19,10 @@ class SessionPageViewController: UIViewController, UITableViewDataSource, UITabl
     
     @IBOutlet weak var gameTitle: UILabel!
     
+    var stringArray = [String]()
+    
+    var array2 = [String]()
+    
     @IBAction func leaveButton(sender: AnyObject) {
         
         var currUser = PFUser.currentUser()?.objectId
@@ -62,12 +66,15 @@ class SessionPageViewController: UIViewController, UITableViewDataSource, UITabl
         let hostObjectID = hosty.objectId
         print(hosty.objectId)
         queryAdditionalHostInfo(hosty)
+        queryParticipantsForGame()
         gameTitle.text = passedInObjectId!["gameTitle"] as! String
         //hostName.text = "Host: \(hostObjectID!)"
         //let HostAdditional = queryAdditionalHostInfo(hosty)
         //var username = String()
         //username = HostAdditional["username"] as! String
         //hostName.text = "Host:" + username
+      tableView.reloadData()
+        //print(array2.count)
        
         
     }
@@ -116,18 +123,63 @@ class SessionPageViewController: UIViewController, UITableViewDataSource, UITabl
         return user
     }*/
     
+    func queryParticipantsForGame()
+    {
+       
+        
+        
+        var query = PFQuery(className: "GameOnSession")
+        query.whereKey("objectId", equalTo:(passedInObjectId?.objectId)!)
+        query.findObjectsInBackgroundWithBlock {
+            (object:[PFObject]?, error:NSError?) in
+            
+            if error == nil {
+                
+                var currentSession = object![0]
+                
+                print(currentSession)
+                
+                self.array2 = currentSession["participants"] as! [String]
+                
+
+               /* for element in array2
+                {
+                    self.stringArray.append(element)
+                }*/
+                
+                //print(self.stringArray)
+                // stringArray = currentSession["participants"] as! [PFUser]
+                
+              
+            } else {
+                print("Error in query for participants!!")
+            }
+            
+            
+        }
+        
+     
+    }
     
-    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(true)
+        print(array2)
+        tableView.reloadData()
+    }
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = self.tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! CustomSessionCell
         
+       
+        cell.playerName?.text = array2[indexPath.row]
+        
         return cell
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+       
+                return array2.count
     }
 }

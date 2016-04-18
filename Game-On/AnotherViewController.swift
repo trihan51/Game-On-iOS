@@ -74,6 +74,7 @@ class AnotherViewController: UIViewController,UITableViewDelegate,UITableViewDat
         var currUser = PFUser.currentUser()?.objectId
         
         arrayOfCurrUser = chosenOne!["participants"] as! [String]
+        print(arrayOfCurrUser.count)
         arrayOfCurrUser.append(currUser!)
         
         //print(arrayOfCurrUser[0])
