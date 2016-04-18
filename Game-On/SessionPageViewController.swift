@@ -208,6 +208,7 @@ class SessionPageViewController: UIViewController, UITableViewDataSource, UITabl
         super.viewWillAppear(true)
       
         self.tableView.reloadData()
+        print("view willll appppear!")
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -218,6 +219,8 @@ class SessionPageViewController: UIViewController, UITableViewDataSource, UITabl
         {
             queryUserInfo(user)
         }
+        print("view did appear!!!")
+        self.tableView.reloadData()
     }
     
   

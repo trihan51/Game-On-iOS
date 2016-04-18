@@ -20,7 +20,15 @@ class HostSessionPageViewController: UIViewController, UITableViewDelegate, UITa
    
     @IBOutlet weak var tableView: UITableView!
     
+    var array2 = [String]()
     
+    var usersInGame = [PFUser]()
+    
+    @IBAction func cancelSession(sender: AnyObject) {
+        
+        hostedSessionObject?.deleteInBackground()
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,6 +42,87 @@ class HostSessionPageViewController: UIViewController, UITableViewDelegate, UITa
         
     }
     
+    func queryParticipantsForGame()
+    {
+        
+        let objectIDCompare = hostedSessionObject?.objectId
+        
+        var query = PFQuery(className: "GameOnSession")
+        query.whereKey("objectId", equalTo: objectIDCompare!)
+        query.findObjectsInBackgroundWithBlock {
+            (object:[PFObject]?, error:NSError?) in
+            
+            if error == nil {
+                
+                var currentSession = object![0]
+                
+                print(currentSession)
+                
+                self.array2 = currentSession["participants"] as! [String]
+                
+                
+                /* for element in array2
+                 {
+                 self.stringArray.append(element)
+                 }*/
+                
+                //print(self.stringArray)
+                // stringArray = currentSession["participants"] as! [PFUser]
+                
+                
+            } else {
+                print("Error in query for participants!!")
+            }
+            
+            
+        }
+        
+        
+        
+        
+    }
+
+    
+    func queryUserInfo(userObjectID:String)->[PFUser]
+    {
+        
+        var userQuery = PFUser.query()
+        userQuery!.whereKey("objectId", equalTo: userObjectID)
+        userQuery!.findObjectsInBackgroundWithBlock {
+            (object:[PFObject]?, error:NSError?) in
+            
+            if error == nil {
+                
+                for obj in object!
+                {
+                    
+                    var user = PFUser()
+                    user = obj as! PFUser
+                    //print(obj)
+                    //self.usersInGame.append(user)
+                    self.usersInGame.append(user)
+                    print(user.username)
+                    
+                    
+                }
+                
+                self.tableView.reloadData()
+                
+            } else {
+                print("Error in query for participants!!")
+            }
+            
+            
+        }
+        
+        return usersInGame
+        
+    }
+
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(true)
+        tableView.reloadData()
+    }
     
   
     
@@ -41,11 +130,18 @@ class HostSessionPageViewController: UIViewController, UITableViewDelegate, UITa
         
         let cell = self.tableView.dequeueReusableCellWithIdentifier("cell1", forIndexPath: indexPath) as! CustomSessionCell
         
+        cell.playerEmailHost.text = usersInGame[indexPath.row].username
+        
+        cell.playerNameHost.text = usersInGame[indexPath.row]["firstName"] as! String
+        
+        
+        return cell
+        
         return cell
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return 0
+             return usersInGame.count
     }
     
 }

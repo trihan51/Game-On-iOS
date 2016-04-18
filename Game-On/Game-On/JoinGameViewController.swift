@@ -56,7 +56,7 @@ class JoinGameViewController: UIViewController, UITableViewDelegate, UITableView
     func queryData()
     {
         var testArray = [PFObject]()
-         let currentUser = PFUser.currentUser()
+        let currentUser = PFUser.currentUser()
         var query = PFQuery(className: "GameOnSession")
         query.whereKey("Open", equalTo: true)
         query.orderByAscending("createdAt")
