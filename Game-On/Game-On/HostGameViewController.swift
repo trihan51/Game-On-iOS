@@ -107,6 +107,7 @@ class HostGameViewController: UIViewController, UITableViewDataSource, UITableVi
         newHostedGame["Open"] = true
         newHostedGame["host"] = currentUser
         newHostedGame["location"] = geoPointOfHost
+        newHostedGame["participants"] = []
         newHostedGame.saveInBackgroundWithBlock { (success: Bool, error: NSError?) in
             if (success)
             {
