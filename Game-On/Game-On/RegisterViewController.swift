@@ -47,11 +47,6 @@ class RegisterViewController: UIViewController,UITextFieldDelegate{
         
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        self.view.endEditing(true)
-        return false
-    }
-    
     func signUp() {
         var email = userEmail.text
         var pass1 = userPassword.text
@@ -63,7 +58,7 @@ class RegisterViewController: UIViewController,UITextFieldDelegate{
         user.password = pass1
         user["Name"] = firstname
         user["lastName"] = lastname
-      
+        
         
         user.signUpInBackgroundWithBlock {
             (succeeded: Bool, error: NSError?) -> Void in
@@ -78,4 +73,43 @@ class RegisterViewController: UIViewController,UITextFieldDelegate{
         }
     }
     
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        switch textField {
+            case userFirstName:
+                userLastName.becomeFirstResponder()
+            case userLastName:
+                userEmail.becomeFirstResponder()
+            case userEmail:
+                userPassword.becomeFirstResponder()
+            case userPassword:
+                userPassword2.becomeFirstResponder()
+            default:
+                break
+        }
+        return false
+    }
+    
+    /**********************************************************************/
+    // Code from here ...
+    func textFieldDidBeginEditing(textField: UITextField) {
+        animateViewMoving(true, moveValue: 100)
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        animateViewMoving(false, moveValue: 100)
+    }
+    
+    // Lifting the view up
+    func animateViewMoving (up:Bool, moveValue :CGFloat){
+        let movementDuration:NSTimeInterval = 0.3
+        let movement:CGFloat = ( up ? -moveValue : moveValue)
+        UIView.beginAnimations( "animateView", context: nil)
+        UIView.setAnimationBeginsFromCurrentState(true)
+        UIView.setAnimationDuration(movementDuration )
+        self.view.frame = CGRectOffset(self.view.frame, 0,  movement)
+        UIView.commitAnimations()
+    }
+    // ... to here was taken from http://stackoverflow.com/questions/1126726/how-to-make-a-uitextfield-move-up-when-keyboard-is-present
+    /**********************************************************************/
 }
