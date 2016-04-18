@@ -7,19 +7,80 @@
 //
 
 import UIKit
+import Parse
 
 class SessionPageViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
+    var passedInObjectId = PFObject?()
+    
+    @IBOutlet weak var hostName: UILabel!
+    
     @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var gameTitle: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        var currentUser = PFUser.currentUser()
+        //let hosty =  PFUser()
         
+        let hosty = passedInObjectId!["host"] as! PFUser
+        let hostObjectID = hosty.objectId
+        print(hosty.objectId)
+        queryAdditionalHostInfo(hosty)
+        //hostName.text = "Host: \(hostObjectID!)"
+        //let HostAdditional = queryAdditionalHostInfo(hosty)
+        //var username = String()
+        //username = HostAdditional["username"] as! String
+        //hostName.text = "Host:" + username
+       
         
     }
     
-    
-    
+    func queryAdditionalHostInfo(host : PFUser)
+    {
+       // var hostInfo = PFUser()
+        
+       
+        var query = PFUser.query()
+        query!.whereKey("objectId", equalTo: host.objectId!)
+        query!.findObjectsInBackgroundWithBlock {
+            (user:[PFObject]?, error:NSError?) in
+            
+            if error == nil{
+                var hostInfo = user![0]
+                var hostUsernames = String()
+                hostUsernames = hostInfo["username"] as! String
+                self.hostName.text = "Host: \(hostUsernames)"
+            } else {
+                
+            }
+        }
+        /*do {
+            
+            var hostInfo = try query.find
+           print(hostInfo["username"])
+        } catch {
+            print (error)
+        }*/
+        
+     
+        
+      
+       
+    }
+    /*
+    //query info as a user JOINING
+    func queryHostInfo() ->PFUser
+    {
+        let query = PFQuery(className: "GameOnSession")
+         query.whereKey("Open", equalTo: true)
+        query.whereKey("objectId", equalTo: true)
+        
+        
+        return user
+    }*/
     
     
     
@@ -27,7 +88,7 @@ class SessionPageViewController: UIViewController, UITableViewDataSource, UITabl
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = self.tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! CustomJoinCell
+        let cell = self.tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! CustomSessionCell
         
         return cell
     }

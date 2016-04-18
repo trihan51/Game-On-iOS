@@ -1,20 +1,18 @@
 //
-//  CustomJoinCell.swift
+//  CustomSessionCell.swift
 //  Game-On
 //
-//  Created by Manbir Randhawa on 4/4/16.
+//  Created by Manbir Randhawa on 4/16/16.
 //  Copyright © 2016 GameOn. All rights reserved.
 //
 
 import UIKit
 
-class CustomJoinCell: UITableViewCell {
+class CustomSessionCell:UITableViewCell {
     
-    @IBOutlet weak var boardGameName: UILabel!
+    @IBOutlet weak var playerName: UILabel!
     
-    @IBOutlet weak var boardGameName2: UILabel!
-    
-    @IBOutlet weak var specificSession: UILabel!
+    @IBOutlet weak var playerEmail: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,5 +25,4 @@ class CustomJoinCell: UITableViewCell {
         
         //configure the view for the selected state
     }
-
 }

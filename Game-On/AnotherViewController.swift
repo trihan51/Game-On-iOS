@@ -15,17 +15,39 @@ class AnotherViewController: UIViewController,UITableViewDelegate,UITableViewDat
     @IBOutlet weak var BackButton: UIButton!
     
     var passedArray = [PFObject]()
+    
+    var chosenOne = PFObject?()
 
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.tableView.reloadData()
         
         
         for element in passedArray{
             print(element.objectId)
         }
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(true)
+        
+            print("view did appear")
+        self.tableView.reloadData()
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidAppear(true)
+        
+        self.tableView.reloadData()
+        print("viewDidDisappear")
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(true)
+        passedArray = [PFObject]()
+        print("viewwilldissapear")
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -41,5 +63,29 @@ class AnotherViewController: UIViewController,UITableViewDelegate,UITableViewDat
         return cell
 
     }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        chosenOne = passedArray[indexPath.row]
+        
+        
+        performSegueWithIdentifier("joinGameSessionSegue", sender: self)
+        
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if(segue.identifier == "joinGameSessionSegue") {
+            
+            var vc = segue.destinationViewController as! SessionPageViewController
+            vc.passedInObjectId = chosenOne!
+            
+            
+            
+        }
+    }
+    
     
 }

@@ -525,7 +525,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="540" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q3Y-w9-2R1">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q3Y-w9-2R1">
                                                     <rect key="frame" x="33" y="8" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -536,6 +536,7 @@
                                                 <constraint firstAttribute="bottomMargin" secondItem="Q3Y-w9-2R1" secondAttribute="bottom" constant="6" id="9px-2R-VEx"/>
                                                 <constraint firstItem="Q3Y-w9-2R1" firstAttribute="leading" secondItem="D3b-BV-EtE" secondAttribute="leadingMargin" constant="25" id="JE0-eJ-lmq"/>
                                                 <constraint firstItem="Q3Y-w9-2R1" firstAttribute="top" secondItem="D3b-BV-EtE" secondAttribute="topMargin" id="ibe-NN-fdc"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Q3Y-w9-2R1" secondAttribute="bottom" constant="7" id="pPF-0F-AI3"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -569,6 +570,7 @@
                     <navigationItem key="navigationItem" id="Wwd-Do-h3K"/>
                     <connections>
                         <outlet property="tableView" destination="7dm-xE-SsD" id="kUl-eH-ERG"/>
+                        <segue destination="e0T-NK-izN" kind="show" identifier="joinGameSessionSegue" id="Pia-c8-Pub"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rab-AV-xXF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -593,11 +595,11 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OAa-jM-hkl">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OAa-jM-hkl">
                                 <rect key="frame" x="0.0" y="82" width="600" height="323"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="fho-QB-O9k">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="fho-QB-O9k" customClass="CustomSessionCell" customModule="Game_On" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fho-QB-O9k" id="41f-kn-2pK">
@@ -627,11 +629,15 @@
                                                 <constraint firstAttribute="bottomMargin" secondItem="TwD-M1-h0Y" secondAttribute="bottom" constant="3" id="uT2-L0-vS5"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="playerEmail" destination="NU0-HD-XjS" id="MjI-HZ-i08"/>
+                                            <outlet property="playerName" destination="TwD-M1-h0Y" id="1if-F9-hCv"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Host:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UQg-Bj-R9v">
-                                <rect key="frame" x="245" y="53" width="41" height="21"/>
+                                <rect key="frame" x="45" y="49" width="41" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -639,19 +645,19 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="UQg-Bj-R9v" firstAttribute="leading" secondItem="GWT-fn-x0n" secondAttribute="leadingMargin" constant="225" id="2Nk-Be-kGU"/>
                             <constraint firstAttribute="trailing" secondItem="OAa-jM-hkl" secondAttribute="trailing" id="6rb-1p-025"/>
-                            <constraint firstItem="UQg-Bj-R9v" firstAttribute="top" secondItem="5DM-lN-qWl" secondAttribute="bottom" constant="33" id="JA4-dG-XE9"/>
-                            <constraint firstItem="OAa-jM-hkl" firstAttribute="top" secondItem="UQg-Bj-R9v" secondAttribute="bottom" constant="8" symbolic="YES" id="JQA-3l-P8z"/>
+                            <constraint firstItem="UQg-Bj-R9v" firstAttribute="top" secondItem="X4r-cL-z1X" secondAttribute="bottom" constant="8" id="IYB-Ie-XHe"/>
                             <constraint firstItem="X4r-cL-z1X" firstAttribute="leading" secondItem="GWT-fn-x0n" secondAttribute="leadingMargin" constant="25" id="Q5x-Rb-HZV"/>
                             <constraint firstItem="X4r-cL-z1X" firstAttribute="top" secondItem="5DM-lN-qWl" secondAttribute="bottom" id="U7t-Yh-m6Q"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="UQg-Bj-R9v" secondAttribute="trailing" constant="294" id="eYy-8g-ilC"/>
                             <constraint firstItem="OAa-jM-hkl" firstAttribute="top" secondItem="UQg-Bj-R9v" secondAttribute="bottom" constant="8" id="fxU-q9-sVg"/>
                             <constraint firstItem="qvB-mw-RT7" firstAttribute="top" secondItem="OAa-jM-hkl" secondAttribute="bottom" constant="195" id="kMW-MD-ERR"/>
                             <constraint firstItem="OAa-jM-hkl" firstAttribute="leading" secondItem="GWT-fn-x0n" secondAttribute="leading" id="syt-hv-9DH"/>
+                            <constraint firstItem="UQg-Bj-R9v" firstAttribute="leading" secondItem="X4r-cL-z1X" secondAttribute="leading" id="zmL-nH-wV1"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="HostName" destination="UQg-Bj-R9v" id="eHh-ee-199"/>
+                        <outlet property="gameTitle" destination="X4r-cL-z1X" id="2dh-D5-2NM"/>
                         <outlet property="tableView" destination="OAa-jM-hkl" id="EjV-gU-Fif"/>
                     </connections>
                 </viewController>
@@ -661,7 +667,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="nW1-G4-dvi"/>
         <segue reference="JOa-xM-BVJ"/>
+        <segue reference="3jO-uJ-rjS"/>
     </inferredMetricsTieBreakers>
 </document>

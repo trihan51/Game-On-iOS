@@ -67,6 +67,16 @@ class HostGameViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
 
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if(segue.identifier == "joinGameSegue") {
+            
+            var vc = segue.destinationViewController as! SessionPageViewController
+            
+            
+        }
+    }
+
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         

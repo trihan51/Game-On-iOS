@@ -23,6 +23,10 @@ class JoinGameViewController: UIViewController, UITableViewDelegate, UITableView
     var checkersArray = [PFObject]()
     var cavernaArray = [PFObject]()
     
+    var chosenSessions = String()
+    
+    
+    
     
    
     
@@ -193,49 +197,98 @@ class JoinGameViewController: UIViewController, UITableViewDelegate, UITableView
         let arr = setUpView()
         let stringy = arr[row]
         
+        chosenSessions = stringy
+        
        if (stringy == "Splendor")
        {
-          performSegueWithIdentifier("joinGameSegue", sender: self)
-        }
+          performSegueWithIdentifier("joinGameSegue", sender: self)        }
         
-        if (stringy == "Monopoly")
+        else if (stringy == "Monopoly")
+        {
+        performSegueWithIdentifier("joinGameSegue", sender: self)
+        }
+        else if (stringy == "Chess")
         {
             performSegueWithIdentifier("joinGameSegue", sender: self)
         }
-        if (stringy == "Chess")
+        else if (stringy == "Settlers of Catan")
         {
             performSegueWithIdentifier("joinGameSegue", sender: self)
         }
-        if (stringy == "Settlers of Catan")
+        else if (stringy == "Werewolf")
         {
+        
             performSegueWithIdentifier("joinGameSegue", sender: self)
         }
-        if (stringy == "Werewolf")
+        else if (stringy == "Checkers")
         {
+            
             performSegueWithIdentifier("joinGameSegue", sender: self)
         }
-        if (stringy == "Checkers")
+        else if (stringy == "Caverna: The Cave Farmers")
         {
-            performSegueWithIdentifier("joinGameSegue", sender: self)
-        }
-        if (stringy == "Caverna: The Cave Farmers")
-        {
+           
             performSegueWithIdentifier("joinGameSegue", sender: self)
         }
         
         
     }
+
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
        
         if(segue.identifier == "joinGameSegue") {
             
             var vc = segue.destinationViewController as! AnotherViewController
-            vc.passedArray = checkersArray
-            vc.passedArray = cavernaArray
             
+            if (chosenSessions == "Monopoly")
+            {
+                vc.passedArray = monopolyArray
+            }
+            else if (chosenSessions == "Chess")
+            {
+                vc.passedArray = chessArray
+            }
+            else if (chosenSessions == "Checkers")
+            {
+                vc.passedArray = checkersArray
+            }
+            else if (chosenSessions == "Splendor")
+            {
+                vc.passedArray = splendorArray
+            }
+            else if (chosenSessions == "Werewolf")
+            {
+                vc.passedArray = werewolfArray
+            }
+            
+           
         }
     }
+    
+  
+   
+ 
+    /*
+    func chooseAnArray(arrayName: String) -> [PFObject]
+    {
+        if arrayName == "Chess"
+        {
+            return chessArray
+        }
+        else if arrayName == "Monopoly"
+        {
+            return monopolyArray
+        }
+        else if arrayName == "Checkers"
+        {
+            return checkersArray
+        }
+        
+    
+    
+    }*/
+    
     
     func setUpView()-> [String]
     {
@@ -282,8 +335,9 @@ class JoinGameViewController: UIViewController, UITableViewDelegate, UITableView
         self.werewolfArray = [PFObject]()
         self.checkersArray = [PFObject]()
         self.cavernaArray = [PFObject]()
-        
+        self.chosenSessions = String()
         queryData()
+        tableView.reloadData()
         print("view was loaded & reloaded")
         
     }
