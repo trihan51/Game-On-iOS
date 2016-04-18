@@ -16,6 +16,7 @@ class HostSessionPageViewController: UIViewController, UITableViewDelegate, UITa
     
     @IBOutlet weak var cancelButton: UIButton!
     
+    var hostedSessionObject = PFObject?()
    
     @IBOutlet weak var tableView: UITableView!
     
@@ -23,10 +24,19 @@ class HostSessionPageViewController: UIViewController, UITableViewDelegate, UITa
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print("in the sesion for host now")
+        print(hostedSessionObject)
+        
+        gameTitle.text = hostedSessionObject!["gameTitle"] as? String
+        var hostUser = PFUser()
+        hostUser = hostedSessionObject!["host"] as! PFUser
+        hostDisplay.text = hostUser.username
+        
     }
     
     
   
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = self.tableView.dequeueReusableCellWithIdentifier("cell1", forIndexPath: indexPath) as! CustomSessionCell
@@ -35,7 +45,7 @@ class HostSessionPageViewController: UIViewController, UITableViewDelegate, UITa
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return 1
+            return 0
     }
     
 }

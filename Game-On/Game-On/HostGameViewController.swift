@@ -18,6 +18,8 @@ class HostGameViewController: UIViewController, UITableViewDataSource, UITableVi
     
     let locationManager = CLLocationManager()
     
+    var newHostedGameObjects = PFObject?()
+    
     @IBOutlet weak var testLabel: UILabel!
     
     var geoPointOfHost = PFGeoPoint()
@@ -69,9 +71,13 @@ class HostGameViewController: UIViewController, UITableViewDataSource, UITableVi
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        if(segue.identifier == "joinGameSegue") {
+        if(segue.identifier == "hostGameSegue") {
             
-            var vc = segue.destinationViewController as! SessionPageViewController
+            var vc = segue.destinationViewController as! HostSessionPageViewController
+            
+            vc.hostedSessionObject = newHostedGameObjects
+            
+            
             
             
         }
@@ -108,10 +114,12 @@ class HostGameViewController: UIViewController, UITableViewDataSource, UITableVi
         newHostedGame["host"] = currentUser
         newHostedGame["location"] = geoPointOfHost
         newHostedGame["participants"] = []
+        newHostedGameObjects = newHostedGame
         newHostedGame.saveInBackgroundWithBlock { (success: Bool, error: NSError?) in
             if (success)
             {
                 print("game successfully created!")
+                self.performSegueWithIdentifier("hostGameSegue", sender: self)
             } else {
                 print("error created this new session")
             }
