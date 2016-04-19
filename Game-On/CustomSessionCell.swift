@@ -15,6 +15,8 @@ class CustomSessionCell:UITableViewCell {
     
     @IBOutlet weak var playerEmailHost: UILabel!
    
+    @IBOutlet weak var playerEmails: UILabel!
+    @IBOutlet weak var playerEmail: UILabel!
     @IBOutlet weak var playerNameHost: UILabel!
     
     override func awakeFromNib() {

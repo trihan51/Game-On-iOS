@@ -23,6 +23,7 @@ class SessionPageViewController: UIViewController, UITableViewDataSource, UITabl
     
     var array2 = [String]()
     
+     var timer = NSTimer()
     var usersInGame = [PFUser]()
     
     @IBAction func leaveButton(sender: AnyObject) {
@@ -61,6 +62,7 @@ class SessionPageViewController: UIViewController, UITableViewDataSource, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         var currentUser = PFUser.currentUser()
         //let hosty =  PFUser()
         
@@ -70,7 +72,7 @@ class SessionPageViewController: UIViewController, UITableViewDataSource, UITabl
         queryAdditionalHostInfo(hosty)
         queryParticipantsForGame()
         
-        
+         timer = NSTimer.scheduledTimerWithTimeInterval(30, target: self, selector: "update", userInfo: nil, repeats: true)
         
         gameTitle.text = passedInObjectId!["gameTitle"] as! String
         //hostName.text = "Host: \(hostObjectID!)"
@@ -81,6 +83,22 @@ class SessionPageViewController: UIViewController, UITableViewDataSource, UITabl
       tableView.reloadData()
         //print(array2.count)
        
+        
+    }
+    
+    
+    func update() {
+        /**
+         ADD THE CODE TO UPDATE THE DATA SOURCE
+         **/
+        self.queryUserInfo()
+       
+        
+        dispatch_async(dispatch_get_main_queue())
+        {
+          
+            self.tableView.reloadData()
+        }
         
     }
     
@@ -128,7 +146,7 @@ class SessionPageViewController: UIViewController, UITableViewDataSource, UITabl
         return user
     }*/
     
-    func queryParticipantsForGame()
+    func queryParticipantsForGame()->[String]
     {
        
         
@@ -164,16 +182,22 @@ class SessionPageViewController: UIViewController, UITableViewDataSource, UITabl
         }
         
         
-        
+        return array2
      
     }
     
     
-    func queryUserInfo(userObjectID:String)->[PFUser]
+    func queryUserInfo()
     {
+        let theone = queryParticipantsForGame()
+        print(theone.count)
+        usersInGame = [PFUser]()
+        for user in theone
+        {
+            
         
         var userQuery = PFUser.query()
-        userQuery!.whereKey("objectId", equalTo: userObjectID)
+        userQuery!.whereKey("objectId", equalTo: user)
         userQuery!.findObjectsInBackgroundWithBlock {
             (object:[PFObject]?, error:NSError?) in
             
@@ -195,13 +219,14 @@ class SessionPageViewController: UIViewController, UITableViewDataSource, UITabl
                 self.tableView.reloadData()
                 
             } else {
-                print("Error in query for participants!!")
+                print(error)
             }
             
             
         }
+        }
         
-        return usersInGame
+        //return usersInGame
         
     }
     override func viewWillAppear(animated: Bool) {
@@ -211,14 +236,21 @@ class SessionPageViewController: UIViewController, UITableViewDataSource, UITabl
         print("view willll appppear!")
     }
     
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(true)
+        
+        timer.invalidate()
+    }
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
         print(array2)
         
-        for user in array2
+      /*  for user in array2
         {
             queryUserInfo(user)
-        }
+        }*/
+        queryUserInfo()
         print("view did appear!!!")
         self.tableView.reloadData()
     }

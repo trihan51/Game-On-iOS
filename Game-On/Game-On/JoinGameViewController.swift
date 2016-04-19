@@ -24,11 +24,30 @@ class JoinGameViewController: UIViewController, UITableViewDelegate, UITableView
     var cavernaArray = [PFObject]()
     
     var chosenSessions = String()
+    var timer = NSTimer()
     
     
-    
-    
-   
+    func update() {
+        /**
+         ADD THE CODE TO UPDATE THE DATA SOURCE
+         **/
+        self.splendorArray = [PFObject]()
+        self.chessArray = [PFObject]()
+        self.monopolyArray = [PFObject]()
+        self.settlersArray = [PFObject]()
+        self.werewolfArray = [PFObject]()
+        self.checkersArray = [PFObject]()
+        self.cavernaArray = [PFObject]()
+        self.chosenSessions = String()
+        
+        queryData()
+        
+        dispatch_async(dispatch_get_main_queue())
+        {
+            self.tableView.reloadData()
+        }
+        
+    }
     
     @IBOutlet weak var testLabel: UILabel!
    
@@ -44,11 +63,21 @@ class JoinGameViewController: UIViewController, UITableViewDelegate, UITableView
        // queryData()
         
         
+       // tableView.registerClass(CustomJoinCell.self, forCellReuseIdentifier: "cell")
+       // tableView.delegate = self
+        //tableView.dataSource = self
+        
+         timer = NSTimer.scheduledTimerWithTimeInterval(20, target: self, selector: "update", userInfo: nil, repeats: true)
         
     }
     
     override func viewWillDisappear(animated: Bool) {
         self.splendorArray = [PFObject]()
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(true)
+        timer.invalidate()
     }
     
     
