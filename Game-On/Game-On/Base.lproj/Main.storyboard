@@ -453,12 +453,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="EER-jp-vcn">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Host A Game!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KP3-u3-OaQ">
+                                <rect key="frame" x="232" y="28" width="106" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" minimumZoomScale="5" maximumZoomScale="5" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EER-jp-vcn">
                                 <rect key="frame" x="0.0" y="57" width="600" height="494"/>
-                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell1" id="buH-JG-YZN" customClass="CustomJoinCell" customModule="Game_On" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="buH-JG-YZN" id="5EQ-tQ-FEO">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -481,24 +487,60 @@
                                             <outlet property="boardGameName2" destination="7lq-oD-tUi" id="6gv-Zs-aYE"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell2" rowHeight="220" id="ST7-Za-QdL" customClass="CustomJoinCell" customModule="Game_On" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="72" width="600" height="220"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ST7-Za-QdL" id="izd-82-Siy">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="219"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="npD-a7-osc">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="219"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="600" id="c40-jp-12z"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CEn-4u-4q1">
+                                                    <rect key="frame" x="61" y="84" width="492" height="51"/>
+                                                    <attributedString key="attributedText">
+                                                        <fragment content="Label">
+                                                            <attributes>
+                                                                <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <font key="NSFont" size="17" name="HelveticaNeue-Bold"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="CEn-4u-4q1" firstAttribute="leading" secondItem="izd-82-Siy" secondAttribute="leadingMargin" constant="53" id="5y4-kY-yes"/>
+                                                <constraint firstItem="npD-a7-osc" firstAttribute="top" secondItem="izd-82-Siy" secondAttribute="top" id="DRc-Ju-5dk"/>
+                                                <constraint firstItem="npD-a7-osc" firstAttribute="centerX" secondItem="izd-82-Siy" secondAttribute="centerX" id="Hdn-Qk-jo3"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="CEn-4u-4q1" secondAttribute="trailing" constant="39" id="Kif-rn-G2Q"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="CEn-4u-4q1" secondAttribute="bottom" constant="76" id="Vkl-FF-awI"/>
+                                                <constraint firstItem="npD-a7-osc" firstAttribute="bottom" secondItem="izd-82-Siy" secondAttribute="bottomMargin" constant="8" id="hAA-oP-Krb"/>
+                                                <constraint firstItem="CEn-4u-4q1" firstAttribute="top" secondItem="izd-82-Siy" secondAttribute="topMargin" constant="76" id="rOL-oC-eG1"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="boardGameName3" destination="CEn-4u-4q1" id="SKj-dH-buv"/>
+                                            <outlet property="gamePic" destination="npD-a7-osc" id="v1q-Er-YM7"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="Mhj-7x-aGU" id="pXU-FK-scT"/>
                                     <outlet property="delegate" destination="Mhj-7x-aGU" id="Ja5-YU-eAA"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Host A Game!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KP3-u3-OaQ">
-                                <rect key="frame" x="232" y="28" width="106" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="KP3-u3-OaQ" firstAttribute="top" secondItem="gLu-jn-sj4" secondAttribute="bottom" constant="8" id="JHb-N2-86w"/>
                             <constraint firstItem="EER-jp-vcn" firstAttribute="centerX" secondItem="KP3-u3-OaQ" secondAttribute="centerX" constant="15" id="XAU-CW-hee"/>
-                            <constraint firstItem="16m-3z-mYI" firstAttribute="top" secondItem="EER-jp-vcn" secondAttribute="bottom" id="YBh-1f-qD7"/>
+                            <constraint firstItem="16m-3z-mYI" firstAttribute="top" secondItem="EER-jp-vcn" secondAttribute="bottom" constant="49" id="YBh-1f-qD7"/>
                             <constraint firstItem="EER-jp-vcn" firstAttribute="leading" secondItem="svG-8r-9l6" secondAttribute="leadingMargin" constant="-20" id="biW-Wa-ORR"/>
                             <constraint firstItem="EER-jp-vcn" firstAttribute="top" secondItem="KP3-u3-OaQ" secondAttribute="bottom" constant="8" symbolic="YES" id="irf-Ys-QDc"/>
                             <constraint firstItem="KP3-u3-OaQ" firstAttribute="centerX" secondItem="svG-8r-9l6" secondAttribute="centerX" constant="-15" id="vg1-M5-1Xl"/>
@@ -833,7 +875,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="wWu-lr-h76"/>
+        <segue reference="VPa-eD-5lf"/>
         <segue reference="c4f-HS-Y5w"/>
     </inferredMetricsTieBreakers>
 </document>

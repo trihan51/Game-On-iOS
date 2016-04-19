@@ -14,6 +14,10 @@ class CustomJoinCell: UITableViewCell {
     
     @IBOutlet weak var boardGameName2: UILabel!
     
+    @IBOutlet weak var gamePic: UIImageView!
+    
+    
+    @IBOutlet weak var boardGameName3: UILabel!
     @IBOutlet weak var specificSession: UILabel!
     
     override func awakeFromNib() {

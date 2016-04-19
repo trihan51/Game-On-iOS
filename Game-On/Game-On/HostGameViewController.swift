@@ -24,6 +24,8 @@ class HostGameViewController: UIViewController, UITableViewDataSource, UITableVi
     
     var geoPointOfHost = PFGeoPoint()
     
+    var gameLogos = [UIImage]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -56,7 +58,23 @@ class HostGameViewController: UIViewController, UITableViewDataSource, UITableVi
             {
                 if let games = games {
                     for game in games {
+                        
                         self.gameNames.append(game["boardName"] as! String)
+                            print(game)
+                        let thumbnailImage = game["gameLogo"] as? PFFile
+                        thumbnailImage!.getDataInBackgroundWithBlock   {
+                            (imageData: NSData?, error:NSError?) in
+                            
+                            if error == nil {
+                                if let image = UIImage(data: (imageData)!)
+                                {
+                                    self.gameLogos.append(image)
+                                }
+                            } else {
+                                print("error with data image???")
+                            }
+                            self.tableView.reloadData()
+                        }
                     }
                     self.tableView.reloadData()
                     print(self.gameNames)
@@ -86,14 +104,16 @@ class HostGameViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return gameNames.count
+        return gameLogos.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = self.tableView.dequeueReusableCellWithIdentifier("cell1", forIndexPath: indexPath) as! CustomJoinCell
-        
-        cell.boardGameName2?.text = gameNames[indexPath.row]
+        let cell = self.tableView.dequeueReusableCellWithIdentifier("cell2", forIndexPath: indexPath) as! CustomJoinCell
+    
+        tableView.estimatedRowHeight = 26
+        cell.boardGameName3?.text = gameNames[indexPath.row]
+        cell.gamePic?.image = gameLogos[indexPath.row]
         
         return cell
         
@@ -135,6 +155,8 @@ class HostGameViewController: UIViewController, UITableViewDataSource, UITableVi
         var currLocation = locationManager.location
         geoPointOfHost = PFGeoPoint(location:currLocation)
         print("location recaptured")
+        self.tableView.reloadData()
+       
 
     }
 
