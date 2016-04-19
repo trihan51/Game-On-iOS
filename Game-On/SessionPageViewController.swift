@@ -233,7 +233,7 @@ class SessionPageViewController: UIViewController, UITableViewDataSource, UITabl
        
         cell.playerName?.text = usersInGame[indexPath.row].username
         
-        cell.playerEmailLabel?.text = usersInGame[indexPath.row]["firstName"] as! String
+        cell.playerEmailLabel?.text = usersInGame[indexPath.row]["firstName"] as? String
         
         
         return cell

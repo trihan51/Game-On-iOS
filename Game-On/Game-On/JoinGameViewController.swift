@@ -58,7 +58,7 @@ class JoinGameViewController: UIViewController, UITableViewDelegate, UITableView
         var testArray = [PFObject]()
         let currentUser = PFUser.currentUser()
         var query = PFQuery(className: "GameOnSession")
-        query.whereKey("Open", equalTo: true)
+        query.whereKey("open", equalTo: true)
         query.orderByAscending("createdAt")
         query.whereKey("host", notEqualTo: currentUser!)
         query.findObjectsInBackgroundWithBlock{(games: [PFObject]?, error: NSError?) in

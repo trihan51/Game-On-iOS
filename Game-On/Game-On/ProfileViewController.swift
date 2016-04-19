@@ -18,14 +18,19 @@ class ProfileViewController: UIViewController{
     @IBAction func logOut(sender: AnyObject) {
         
         PFUser.logOut()
+        
+        
        
         print("You have successfully logged out")
         
     }
        
     override func viewDidLoad() {
+        
+        
                testLabel.text = "Profile view screen"
-            userInfolabel.text = "User logged in is:" + (currentUser?.username)!
+        
+            userInfolabel.text = "User logged in is: \(currentUser!.username!)"
        
         
       

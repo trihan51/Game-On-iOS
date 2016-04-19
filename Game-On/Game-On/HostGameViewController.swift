@@ -27,7 +27,7 @@ class HostGameViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        testLabel.text = "Host view screen"
+        
         queryData()
         
         locationManager.delegate = self
@@ -110,7 +110,7 @@ class HostGameViewController: UIViewController, UITableViewDataSource, UITableVi
         let gameToCreate = gameNames[indexPath.row]
         var newHostedGame = PFObject(className:"GameOnSession")
         newHostedGame["gameTitle"] = gameToCreate
-        newHostedGame["Open"] = true
+        newHostedGame["open"] = true
         newHostedGame["host"] = currentUser
         newHostedGame["location"] = geoPointOfHost
         newHostedGame["participants"] = []
