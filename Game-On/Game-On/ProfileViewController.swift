@@ -13,7 +13,6 @@ class ProfileViewController: UIViewController{
     
     @IBOutlet weak var testLabel: UILabel!
     @IBOutlet weak var userInfolabel: UILabel!
-    var currentUser = PFUser.currentUser()
     
     @IBAction func logOut(sender: AnyObject) {
         
@@ -24,16 +23,32 @@ class ProfileViewController: UIViewController{
         print("You have successfully logged out")
         
     }
-       
+    
     override func viewDidLoad() {
         
-        
+        super.viewDidLoad()
+    
+
+
                testLabel.text = "Profile view screen"
         
-            userInfolabel.text = "User logged in is: \(currentUser!.username!)"
        
         
+        
       
+    }
+
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(true)
+        var currentUser = PFUser.currentUser()
+
+        if currentUser != nil{
+            userInfolabel.text = currentUser?.username
+        }else {
+            userInfolabel.text = "User is here"
+        }
+        
     }
 
 }

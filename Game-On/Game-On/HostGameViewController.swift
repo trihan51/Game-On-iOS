@@ -29,8 +29,7 @@ class HostGameViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        queryData()
+            queryData()
         
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
@@ -43,6 +42,9 @@ class HostGameViewController: UIViewController, UITableViewDataSource, UITableVi
         }else {
             print ("location not enabled")
         }
+        
+        self.tableView.reloadData()
+
         
         
     }
@@ -73,18 +75,19 @@ class HostGameViewController: UIViewController, UITableViewDataSource, UITableVi
                             } else {
                                 print("error with data image???")
                             }
-                            self.tableView.reloadData()
+                            //self.tableView.reloadData()
                         }
                     }
-                    self.tableView.reloadData()
+//self.tableView.reloadData()
                     print(self.gameNames)
                 }
                 print("success", games?.count)
             }else{
                 print("no success")
             }
-            
+           
         }
+       
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -152,12 +155,20 @@ class HostGameViewController: UIViewController, UITableViewDataSource, UITableVi
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        queryData()
         var currLocation = locationManager.location
         geoPointOfHost = PFGeoPoint(location:currLocation)
         print("location recaptured")
+        
         self.tableView.reloadData()
        
 
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        queryData()
+        self.tableView.reloadData()
     }
 
     

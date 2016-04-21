@@ -34,6 +34,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
     override func viewDidLoad() {
         self.passwordField.delegate = self;
         self.emailAddress.delegate=self;
+        print("at the login view")
     }
     
     func login()
