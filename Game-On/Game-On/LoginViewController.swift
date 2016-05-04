@@ -34,6 +34,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
     override func viewDidLoad() {
         self.passwordField.delegate = self;
         self.emailAddress.delegate=self;
+        print("at the login view")
     }
     
     func login()
@@ -46,6 +47,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
                 if user != nil {
                     // Do stuff after successful login.
                     print("Succesful login!")
+                    self.performSegueWithIdentifier("successLogin", sender: self)
                     
                 } else {
                     // The login failed. Check error to see why.

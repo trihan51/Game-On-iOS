@@ -18,15 +18,23 @@ class HostGameViewController: UIViewController, UITableViewDataSource, UITableVi
     
     let locationManager = CLLocationManager()
     
+    var newHostedGameObjects = PFObject?()
+    
     @IBOutlet weak var testLabel: UILabel!
     
     var geoPointOfHost = PFGeoPoint()
     
+    var gameLogos = [UIImage]()
+    
+    var gameBoardsArray = [PFObject]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        testLabel.text = "Host view screen"
-        queryData()
+        
+       queryObjectWay()
+
+        
         
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
@@ -40,12 +48,18 @@ class HostGameViewController: UIViewController, UITableViewDataSource, UITableVi
             print ("location not enabled")
         }
         
+      
+        print("View is LOADED")
         
+       
     }
 
    
+   
+  
     
-    func queryData()
+    
+    func queryObjectWay()
     {
         let query = PFQuery(className: "BoardGames")
         query.findObjectsInBackgroundWithBlock{(games: [PFObject]?, error: NSError?) in
@@ -54,24 +68,37 @@ class HostGameViewController: UIViewController, UITableViewDataSource, UITableVi
             {
                 if let games = games {
                     for game in games {
-                        self.gameNames.append(game["boardName"] as! String)
+                        
+                        self.gameBoardsArray.append(game)
+                       
+                        
+                        
+                        
                     }
                     self.tableView.reloadData()
-                    print(self.gameNames)
+                    //print(self.gameNames)
                 }
                 print("success", games?.count)
+                
             }else{
                 print("no success")
             }
             
         }
+        
     }
+    
+    
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        if(segue.identifier == "joinGameSegue") {
+        if(segue.identifier == "hostGameSegue") {
             
-            var vc = segue.destinationViewController as! SessionPageViewController
+            var vc = segue.destinationViewController as! HostSessionPageViewController
+            
+            vc.hostedSessionObject = newHostedGameObjects
+            
+            
             
             
         }
@@ -80,37 +107,62 @@ class HostGameViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return gameNames.count
+        return gameBoardsArray.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = self.tableView.dequeueReusableCellWithIdentifier("cell1", forIndexPath: indexPath) as! CustomJoinCell
+        let cell = self.tableView.dequeueReusableCellWithIdentifier("cell2", forIndexPath: indexPath) as! CustomJoinCell
+    
+        //tableView.estimatedRowHeight = 8
+       /*
+         cell.gamePic?.image = gameLogos[indexPath.row]
+        cell.boardGameName3?.text = gameNames[indexPath.row]*/
         
-        cell.boardGameName2?.text = gameNames[indexPath.row]
+     
+        var imagestodisplay = gameBoardsArray[indexPath.row]["gameLogo"] as! PFFile
+        
+        imagestodisplay.getDataInBackgroundWithBlock { (result, error) in
+            cell.gamePic?.image = UIImage(data:result!)
+        }
+        cell.boardGameName3?.text = gameBoardsArray[indexPath.row]["boardName"] as! String
+  
+       
+        
         
         return cell
         
     }
+   
+    
+    
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
        
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
         let currentUser = PFUser.currentUser()
+        
+    
        
         //let row = indexPath.row
         //let arr = setUpView()
         //let stringy = arr[row]
-        let gameToCreate = gameNames[indexPath.row]
+        let gameToCreate = gameBoardsArray[indexPath.row]
         var newHostedGame = PFObject(className:"GameOnSession")
-        newHostedGame["gameTitle"] = gameToCreate
-        newHostedGame["Open"] = true
+        newHostedGame["gameTitle"] = gameToCreate["boardName"]
+        newHostedGame["open"] = true
         newHostedGame["host"] = currentUser
         newHostedGame["location"] = geoPointOfHost
+        newHostedGame["participants"] = []
+        newHostedGameObjects = newHostedGame
         newHostedGame.saveInBackgroundWithBlock { (success: Bool, error: NSError?) in
             if (success)
             {
                 print("game successfully created!")
+                
+                self.performSegueWithIdentifier("hostGameSegue", sender: self)
+                
             } else {
                 print("error created this new session")
             }
@@ -123,11 +175,25 @@ class HostGameViewController: UIViewController, UITableViewDataSource, UITableVi
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+       // queryData()
         var currLocation = locationManager.location
         geoPointOfHost = PFGeoPoint(location:currLocation)
         print("location recaptured")
+        
+     
+       
 
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        
+       print("VIEW ABOUT TO APPEAR")
+     
+       
+    }
+    
+   
 
     
 }

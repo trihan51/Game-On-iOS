@@ -8,8 +8,9 @@
 
 import UIKit
 import Parse
+import CoreLocation
 
-class JoinGameViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class JoinGameViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,CLLocationManagerDelegate {
     
     var gameNames = [String]()
     var test = ["manny", "sam", "bob"]
@@ -24,11 +25,35 @@ class JoinGameViewController: UIViewController, UITableViewDelegate, UITableView
     var cavernaArray = [PFObject]()
     
     var chosenSessions = String()
+    var timer = NSTimer()
     
+     let locationManager = CLLocationManager()
     
+    var usersLocation = PFGeoPoint()
     
+    var longPressRecognizer = UILongPressGestureRecognizer()
     
-   
+    func update() {
+        /**
+         ADD THE CODE TO UPDATE THE DATA SOURCE
+         **/
+        self.splendorArray = [PFObject]()
+        self.chessArray = [PFObject]()
+        self.monopolyArray = [PFObject]()
+        self.settlersArray = [PFObject]()
+        self.werewolfArray = [PFObject]()
+        self.checkersArray = [PFObject]()
+        self.cavernaArray = [PFObject]()
+        self.chosenSessions = String()
+        
+        queryData()
+        
+        dispatch_async(dispatch_get_main_queue())
+        {
+            self.tableView.reloadData()
+        }
+        
+    }
     
     @IBOutlet weak var testLabel: UILabel!
    
@@ -39,11 +64,34 @@ class JoinGameViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+            // tapRecognizer, placed in viewDidLoad
+        //longPressRecognizer = UILongPressGestureRecognizer(target: self, action: "longPress:")
+        //self.view.addGestureRecognizer(longPressRecognizer)
+        
         self.splendorArray = [PFObject]()
-        testLabel.text = "Join An Open Game Screen"
+        
        // queryData()
         
         
+       // tableView.registerClass(CustomJoinCell.self, forCellReuseIdentifier: "cell")
+       // tableView.delegate = self
+        //tableView.dataSource = self
+        
+         timer = NSTimer.scheduledTimerWithTimeInterval(20, target: self, selector: "update", userInfo: nil, repeats: true)
+        
+        locationManager.delegate = self
+        locationManager.requestAlwaysAuthorization()
+        self.locationManager.requestWhenInUseAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled(){
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+        }else {
+            print ("location not enabled")
+        }
+
         
     }
     
@@ -51,15 +99,75 @@ class JoinGameViewController: UIViewController, UITableViewDelegate, UITableView
         self.splendorArray = [PFObject]()
     }
     
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(true)
+        timer.invalidate()
+    }
+    @IBAction func handleLongPress(sender: UILongPressGestureRecognizer) {
+      
+        if (sender.state == UIGestureRecognizerState.Began)
+        {
+            
+           var p = sender.locationInView(self.tableView)
+            
+            if let indexPath = self.tableView.indexPathForRowAtPoint(p)
+            {
+               
+                    let cell = self.tableView(self.tableView, cellForRowAtIndexPath: indexPath)
+                    if (cell.highlighted)
+                    {
+                        print("IT WORKSSSSS")
+                         let oneTwo = setUpView()
+                        let string = oneTwo[indexPath.row]
+                        print(string)
+                    }
+                
+                
+            }
+            
+        }
+        
+    }
     
+    /*
+    //Called, when long press occurred
+    func longPress(longPressGestureRecognizer: UILongPressGestureRecognizer) {
+        
+        if longPressGestureRecognizer.state == UIGestureRecognizerState.Began {
+            print("presseddddd")
+            let touchPoint = longPressGestureRecognizer.locationInView(self.view)
+            if let indexPath = self.tableView.indexPathForRowAtPoint(touchPoint) {
+                let cell = tableView(self.tableView, cellForRowAtIndexPath: indexPath)
+                if (cell.is)
+                {
+                     print("you pressed !!!!")
+                }
+                
+               
+                
+                // your code here, get the row for the indexPath or do whatever you want
+            }
+        }
+    }
+    
+    
+    */
     
     func queryData()
     {
-        var testArray = [PFObject]()
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let radiusSearch = defaults.doubleForKey("radiusToSearchWithin")
+        print(radiusSearch)
         
+        if (radiusSearch != 0)
+        {
+        var testArray = [PFObject]()
+        let currentUser = PFUser.currentUser()
         var query = PFQuery(className: "GameOnSession")
-        query.whereKey("Open", equalTo: true)
+        query.whereKey("open", equalTo: true)
         query.orderByAscending("createdAt")
+        query.whereKey("host", notEqualTo: currentUser!)
+        query.whereKey("location", nearGeoPoint: usersLocation, withinMiles: radiusSearch)
         query.findObjectsInBackgroundWithBlock{(games: [PFObject]?, error: NSError?) in
             
             if error == nil
@@ -72,12 +180,40 @@ class JoinGameViewController: UIViewController, UITableViewDelegate, UITableView
                     }
                     self.tableView.reloadData()
                    
-                }
+                }  
                 
             }else{
                 print("no success")
             }
             
+        }
+        }
+        else {
+            var testArray = [PFObject]()
+            let currentUser = PFUser.currentUser()
+            var query = PFQuery(className: "GameOnSession")
+            query.whereKey("open", equalTo: true)
+            query.orderByAscending("createdAt")
+            query.whereKey("host", notEqualTo: currentUser!)
+            query.findObjectsInBackgroundWithBlock{(games: [PFObject]?, error: NSError?) in
+                
+                if error == nil
+                {
+                    if let games = games {
+                        for game in games {
+                            //self.gameNames.append((game["gameTitle"] as? String)!)
+                            testArray.append(game)
+                            self.filterGameResults(game)
+                        }
+                        self.tableView.reloadData()
+                        
+                    }
+                    
+                }else{
+                    print("no success")
+                }
+                
+            }
         }
 
     }
@@ -178,6 +314,8 @@ class JoinGameViewController: UIViewController, UITableViewDelegate, UITableView
         
             cell.boardGameName?.text = oneTwo[indexPath.row]
         
+        //cell.addGestureRecognizer(longPressRecognizer)
+        
         
         return cell
         
@@ -244,26 +382,32 @@ class JoinGameViewController: UIViewController, UITableViewDelegate, UITableView
             if (chosenSessions == "Monopoly")
             {
                 vc.passedArray = monopolyArray
+                vc.usersLocation = usersLocation
             }
             else if (chosenSessions == "Chess")
             {
                 vc.passedArray = chessArray
+                vc.usersLocation = usersLocation
             }
             else if (chosenSessions == "Checkers")
             {
                 vc.passedArray = checkersArray
+                vc.usersLocation = usersLocation
             }
             else if (chosenSessions == "Splendor")
             {
                 vc.passedArray = splendorArray
+                vc.usersLocation = usersLocation
             }
             else if (chosenSessions == "Werewolf")
             {
                 vc.passedArray = werewolfArray
+                vc.usersLocation = usersLocation
             }
             else if (chosenSessions == "Caverna: The Cave Farmers")
             {
                 vc.passedArray = cavernaArray
+                vc.usersLocation = usersLocation
             }
           
             
@@ -344,6 +488,9 @@ class JoinGameViewController: UIViewController, UITableViewDelegate, UITableView
         queryData()
         tableView.reloadData()
         print("view was loaded & reloaded")
+        
+        var currLocation = locationManager.location
+        usersLocation = PFGeoPoint(location:currLocation)
         
     }
     

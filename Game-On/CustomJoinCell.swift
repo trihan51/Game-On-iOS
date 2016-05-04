@@ -8,12 +8,16 @@
 
 import UIKit
 
-class CustomJoinCell: UITableViewCell {
+class CustomJoinCell: MKTableViewCell {
     
     @IBOutlet weak var boardGameName: UILabel!
     
     @IBOutlet weak var boardGameName2: UILabel!
     
+    @IBOutlet weak var gamePic: UIImageView!
+    
+    
+    @IBOutlet weak var boardGameName3: UILabel!
     @IBOutlet weak var specificSession: UILabel!
     
     override func awakeFromNib() {

@@ -1,3 +1,4 @@
+
 //
 //  AppDelegate.swift
 //  Game-On
@@ -9,6 +10,9 @@
 import UIKit
 import Parse
 import Bolts
+import GoogleMaps
+
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,6 +22,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
+        //Register GoogleMaps API with key
+        GMSServices.provideAPIKey("AIzaSyBpNoDGVf1H6RJ82iCiwdA_YBjYFAE2PA0")
+        
+       
         
         //register Subclasses
         GameOnSession.registerSubclass()

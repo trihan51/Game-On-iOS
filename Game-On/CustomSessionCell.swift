@@ -8,11 +8,16 @@
 
 import UIKit
 
-class CustomSessionCell:UITableViewCell {
+class CustomSessionCell:MKTableViewCell {
     
     @IBOutlet weak var playerName: UILabel!
+    @IBOutlet weak var playerEmailLabel: UILabel!
     
+    @IBOutlet weak var playerEmailHost: UILabel!
+   
+    @IBOutlet weak var playerEmails: UILabel!
     @IBOutlet weak var playerEmail: UILabel!
+    @IBOutlet weak var playerNameHost: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

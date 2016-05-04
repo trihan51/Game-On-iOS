@@ -10,10 +10,14 @@ import UIKit
 import Parse
 
 class ViewController: UIViewController {
+    
+  
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+       
         
             }
 
@@ -22,9 +26,24 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if(segue.identifier == "alreadyLoggedIN") {
+            
+             var currentUser = PFUser.currentUser()
+            
+            var vc = segue.destinationViewController as! ProfileViewController
+            vc.currentUserr = currentUser!
+            
+        }
+    }
+    
+   
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        var currentUser = PFUser.currentUser()
+        
+         var currentUser = PFUser.currentUser()
+        
         if currentUser != nil {
             //do stuff
             performSegueWithIdentifier("alreadyLoggedIn", sender: self)
@@ -32,6 +51,8 @@ class ViewController: UIViewController {
         } else {
             //show signup or login
         }
+       
+       
     }
     
    

@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05A5AD917C52DF20B922318E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 48C4D96DEC0781DDAFDF750D /* libPods.a */; };
 		4E3F1EEE1CC2FE640058ED05 /* SessionPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3F1EED1CC2FE640058ED05 /* SessionPageViewController.swift */; };
 		4E3F1EF01CC3656B0058ED05 /* CustomSessionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3F1EEF1CC3656B0058ED05 /* CustomSessionCell.swift */; };
+		4E6400C91CC5703A006106F0 /* HostSessionPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6400C81CC57039006106F0 /* HostSessionPageViewController.swift */; };
+		4E90C4D61CC88C1F00F015C3 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 4E90C4D51CC88C1F00F015C3 /* Podfile */; };
 		4E9AD6871CB1EF8B0028573C /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E9AD6851CB1EF8B0028573C /* Bolts.framework */; };
 		4E9AD6881CB1EF8B0028573C /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E9AD6861CB1EF8B0028573C /* Parse.framework */; };
 		4E9AD68A1CB1EFCA0028573C /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E9AD6891CB1EFCA0028573C /* AudioToolbox.framework */; };
@@ -25,6 +28,23 @@
 		4E9AD6A01CB1FE970028573C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9AD69F1CB1FE970028573C /* ProfileViewController.swift */; };
 		4E9AD6A21CB1FEA60028573C /* HostGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9AD6A11CB1FEA60028573C /* HostGameViewController.swift */; };
 		4E9AD6A41CB1FEB10028573C /* JoinGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9AD6A31CB1FEB10028573C /* JoinGameViewController.swift */; };
+		4EB130271CD967B400F25D9D /* MKActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB130161CD967B400F25D9D /* MKActivityIndicator.swift */; };
+		4EB130281CD967B400F25D9D /* MKButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB130171CD967B400F25D9D /* MKButton.swift */; };
+		4EB130291CD967B400F25D9D /* MKCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB130181CD967B400F25D9D /* MKCardView.swift */; };
+		4EB1302A1CD967B400F25D9D /* MKCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB130191CD967B400F25D9D /* MKCollectionViewCell.swift */; };
+		4EB1302B1CD967B400F25D9D /* MKColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB1301A1CD967B400F25D9D /* MKColor.swift */; };
+		4EB1302C1CD967B400F25D9D /* MKEmbedDrawerControllerSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB1301B1CD967B400F25D9D /* MKEmbedDrawerControllerSegue.swift */; };
+		4EB1302D1CD967B400F25D9D /* MKEmbedMainControllerSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB1301C1CD967B400F25D9D /* MKEmbedMainControllerSegue.swift */; };
+		4EB1302E1CD967B400F25D9D /* MKImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB1301D1CD967B400F25D9D /* MKImageView.swift */; };
+		4EB1302F1CD967B400F25D9D /* MKLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB1301E1CD967B400F25D9D /* MKLabel.swift */; };
+		4EB130301CD967B400F25D9D /* MKLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB1301F1CD967B400F25D9D /* MKLayer.swift */; };
+		4EB130311CD967B400F25D9D /* MKNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB130201CD967B400F25D9D /* MKNavigationBar.swift */; };
+		4EB130321CD967B400F25D9D /* MKRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB130211CD967B400F25D9D /* MKRefreshControl.swift */; };
+		4EB130331CD967B400F25D9D /* MKSideDrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB130221CD967B400F25D9D /* MKSideDrawerViewController.swift */; };
+		4EB130341CD967B400F25D9D /* MKSnackbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB130231CD967B400F25D9D /* MKSnackbar.swift */; };
+		4EB130351CD967B400F25D9D /* MKSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB130241CD967B400F25D9D /* MKSwitch.swift */; };
+		4EB130361CD967B400F25D9D /* MKTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB130251CD967B400F25D9D /* MKTableViewCell.swift */; };
+		4EB130371CD967B400F25D9D /* MKTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB130261CD967B400F25D9D /* MKTextField.swift */; };
 		4EB9B4E11CBC9E4F00B2D5F8 /* GameOnSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB9B4E01CBC9E4F00B2D5F8 /* GameOnSession.swift */; };
 		4EB9B4E31CBCCDE200B2D5F8 /* AnotherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB9B4E21CBCCDE200B2D5F8 /* AnotherViewController.swift */; };
 		4EE81AB61CA0923F006FC89B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE81AB51CA0923F006FC89B /* AppDelegate.swift */; };
@@ -37,8 +57,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04B42E907492884F5CCDC4DD /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		48C4D96DEC0781DDAFDF750D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E3F1EED1CC2FE640058ED05 /* SessionPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionPageViewController.swift; sourceTree = "<group>"; };
 		4E3F1EEF1CC3656B0058ED05 /* CustomSessionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSessionCell.swift; sourceTree = "<group>"; };
+		4E6400C81CC57039006106F0 /* HostSessionPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HostSessionPageViewController.swift; sourceTree = "<group>"; };
+		4E90C4D51CC88C1F00F015C3 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		4E9AD6851CB1EF8B0028573C /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		4E9AD6861CB1EF8B0028573C /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		4E9AD6891CB1EFCA0028573C /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -55,6 +79,23 @@
 		4E9AD69F1CB1FE970028573C /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = "Game-On/ProfileViewController.swift"; sourceTree = "<group>"; };
 		4E9AD6A11CB1FEA60028573C /* HostGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HostGameViewController.swift; path = "Game-On/HostGameViewController.swift"; sourceTree = "<group>"; };
 		4E9AD6A31CB1FEB10028573C /* JoinGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JoinGameViewController.swift; path = "Game-On/JoinGameViewController.swift"; sourceTree = "<group>"; };
+		4EB130161CD967B400F25D9D /* MKActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKActivityIndicator.swift; sourceTree = "<group>"; };
+		4EB130171CD967B400F25D9D /* MKButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKButton.swift; sourceTree = "<group>"; };
+		4EB130181CD967B400F25D9D /* MKCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKCardView.swift; sourceTree = "<group>"; };
+		4EB130191CD967B400F25D9D /* MKCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKCollectionViewCell.swift; sourceTree = "<group>"; };
+		4EB1301A1CD967B400F25D9D /* MKColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKColor.swift; sourceTree = "<group>"; };
+		4EB1301B1CD967B400F25D9D /* MKEmbedDrawerControllerSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKEmbedDrawerControllerSegue.swift; sourceTree = "<group>"; };
+		4EB1301C1CD967B400F25D9D /* MKEmbedMainControllerSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKEmbedMainControllerSegue.swift; sourceTree = "<group>"; };
+		4EB1301D1CD967B400F25D9D /* MKImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKImageView.swift; sourceTree = "<group>"; };
+		4EB1301E1CD967B400F25D9D /* MKLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKLabel.swift; sourceTree = "<group>"; };
+		4EB1301F1CD967B400F25D9D /* MKLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKLayer.swift; sourceTree = "<group>"; };
+		4EB130201CD967B400F25D9D /* MKNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKNavigationBar.swift; sourceTree = "<group>"; };
+		4EB130211CD967B400F25D9D /* MKRefreshControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKRefreshControl.swift; sourceTree = "<group>"; };
+		4EB130221CD967B400F25D9D /* MKSideDrawerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKSideDrawerViewController.swift; sourceTree = "<group>"; };
+		4EB130231CD967B400F25D9D /* MKSnackbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKSnackbar.swift; sourceTree = "<group>"; };
+		4EB130241CD967B400F25D9D /* MKSwitch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKSwitch.swift; sourceTree = "<group>"; };
+		4EB130251CD967B400F25D9D /* MKTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKTableViewCell.swift; sourceTree = "<group>"; };
+		4EB130261CD967B400F25D9D /* MKTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKTextField.swift; sourceTree = "<group>"; };
 		4EB9B4E01CBC9E4F00B2D5F8 /* GameOnSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOnSession.swift; sourceTree = "<group>"; };
 		4EB9B4E21CBCCDE200B2D5F8 /* AnotherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnotherViewController.swift; sourceTree = "<group>"; };
 		4EE81AB21CA0923F006FC89B /* Game-On.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Game-On.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,6 +107,7 @@
 		4EE81AC11CA0923F006FC89B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = "Game-On/Info.plist"; sourceTree = "<group>"; };
 		4EE81AC71CA098FF006FC89B /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterViewController.swift; path = "Game-On/RegisterViewController.swift"; sourceTree = "<group>"; };
 		4EF3DD121CB36E7C00C61A37 /* CustomJoinCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomJoinCell.swift; sourceTree = "<group>"; };
+		F4DFB5C0B8A84912456950F1 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +127,7 @@
 				4E9AD68A1CB1EFCA0028573C /* AudioToolbox.framework in Frameworks */,
 				4E9AD6881CB1EF8B0028573C /* Parse.framework in Frameworks */,
 				4E9AD6871CB1EF8B0028573C /* Bolts.framework in Frameworks */,
+				05A5AD917C52DF20B922318E /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,13 +148,40 @@
 				4E9AD68B1CB1EFD20028573C /* CFNetwork.framework */,
 				4E9AD6891CB1EFCA0028573C /* AudioToolbox.framework */,
 				4EE81AB41CA0923F006FC89B /* Game-On */,
+				48C4D96DEC0781DDAFDF750D /* libPods.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4EB130071CD9630500F25D9D /* MaterialDesign */ = {
+			isa = PBXGroup;
+			children = (
+				4EB130161CD967B400F25D9D /* MKActivityIndicator.swift */,
+				4EB130171CD967B400F25D9D /* MKButton.swift */,
+				4EB130181CD967B400F25D9D /* MKCardView.swift */,
+				4EB130191CD967B400F25D9D /* MKCollectionViewCell.swift */,
+				4EB1301A1CD967B400F25D9D /* MKColor.swift */,
+				4EB1301B1CD967B400F25D9D /* MKEmbedDrawerControllerSegue.swift */,
+				4EB1301C1CD967B400F25D9D /* MKEmbedMainControllerSegue.swift */,
+				4EB1301D1CD967B400F25D9D /* MKImageView.swift */,
+				4EB1301E1CD967B400F25D9D /* MKLabel.swift */,
+				4EB1301F1CD967B400F25D9D /* MKLayer.swift */,
+				4EB130201CD967B400F25D9D /* MKNavigationBar.swift */,
+				4EB130211CD967B400F25D9D /* MKRefreshControl.swift */,
+				4EB130221CD967B400F25D9D /* MKSideDrawerViewController.swift */,
+				4EB130231CD967B400F25D9D /* MKSnackbar.swift */,
+				4EB130241CD967B400F25D9D /* MKSwitch.swift */,
+				4EB130251CD967B400F25D9D /* MKTableViewCell.swift */,
+				4EB130261CD967B400F25D9D /* MKTextField.swift */,
+			);
+			name = MaterialDesign;
 			sourceTree = "<group>";
 		};
 		4EE81AA91CA0923F006FC89B = {
 			isa = PBXGroup;
 			children = (
+				4EB130071CD9630500F25D9D /* MaterialDesign */,
+				4E90C4D51CC88C1F00F015C3 /* Podfile */,
 				4E9AD6A51CB1FF3D0028573C /* Frameworks */,
 				4EE81AB31CA0923F006FC89B /* Products */,
 				4EE81AB51CA0923F006FC89B /* AppDelegate.swift */,
@@ -119,6 +189,7 @@
 				4E9AD69D1CB1FA150028573C /* LoginViewController.swift */,
 				4EE81AC71CA098FF006FC89B /* RegisterViewController.swift */,
 				4EE81AB91CA0923F006FC89B /* Main.storyboard */,
+				4E6400C81CC57039006106F0 /* HostSessionPageViewController.swift */,
 				4E3F1EED1CC2FE640058ED05 /* SessionPageViewController.swift */,
 				4EF3DD121CB36E7C00C61A37 /* CustomJoinCell.swift */,
 				4E3F1EEF1CC3656B0058ED05 /* CustomSessionCell.swift */,
@@ -130,6 +201,7 @@
 				4EE81ABC1CA0923F006FC89B /* Assets.xcassets */,
 				4EE81ABE1CA0923F006FC89B /* LaunchScreen.storyboard */,
 				4EE81AC11CA0923F006FC89B /* Info.plist */,
+				C930E71E3E1AD411DD73D6A2 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -150,6 +222,15 @@
 			path = "Game-On";
 			sourceTree = "<group>";
 		};
+		C930E71E3E1AD411DD73D6A2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				04B42E907492884F5CCDC4DD /* Pods.debug.xcconfig */,
+				F4DFB5C0B8A84912456950F1 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -157,9 +238,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4EE81AC41CA0923F006FC89B /* Build configuration list for PBXNativeTarget "Game-On" */;
 			buildPhases = (
+				3F1BAB3C69F1FF9B80F532A2 /* Check Pods Manifest.lock */,
 				4EE81AAE1CA0923F006FC89B /* Sources */,
 				4EE81AAF1CA0923F006FC89B /* Frameworks */,
 				4EE81AB01CA0923F006FC89B /* Resources */,
+				0FAB2DC5D680AFC5F65B2674 /* Embed Pods Frameworks */,
+				A2420B0A2F63021EF0F201B3 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -176,7 +260,7 @@
 		4EE81AAA1CA0923F006FC89B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0720;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = GameOn;
 				TargetAttributes = {
@@ -211,27 +295,94 @@
 			files = (
 				4EE81AC01CA0923F006FC89B /* LaunchScreen.storyboard in Resources */,
 				4EE81ABD1CA0923F006FC89B /* Assets.xcassets in Resources */,
+				4E90C4D61CC88C1F00F015C3 /* Podfile in Resources */,
 				4EE81ABB1CA0923F006FC89B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0FAB2DC5D680AFC5F65B2674 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3F1BAB3C69F1FF9B80F532A2 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A2420B0A2F63021EF0F201B3 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4EE81AAE1CA0923F006FC89B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EB130341CD967B400F25D9D /* MKSnackbar.swift in Sources */,
 				4E9AD69E1CB1FA150028573C /* LoginViewController.swift in Sources */,
 				4E3F1EF01CC3656B0058ED05 /* CustomSessionCell.swift in Sources */,
+				4EB1302E1CD967B400F25D9D /* MKImageView.swift in Sources */,
 				4EE81AC81CA098FF006FC89B /* RegisterViewController.swift in Sources */,
+				4EB1302B1CD967B400F25D9D /* MKColor.swift in Sources */,
+				4EB130311CD967B400F25D9D /* MKNavigationBar.swift in Sources */,
+				4EB130351CD967B400F25D9D /* MKSwitch.swift in Sources */,
+				4EB1302A1CD967B400F25D9D /* MKCollectionViewCell.swift in Sources */,
 				4E3F1EEE1CC2FE640058ED05 /* SessionPageViewController.swift in Sources */,
+				4EB130301CD967B400F25D9D /* MKLayer.swift in Sources */,
+				4EB130271CD967B400F25D9D /* MKActivityIndicator.swift in Sources */,
 				4EB9B4E11CBC9E4F00B2D5F8 /* GameOnSession.swift in Sources */,
+				4EB1302D1CD967B400F25D9D /* MKEmbedMainControllerSegue.swift in Sources */,
 				4EF3DD131CB36E7C00C61A37 /* CustomJoinCell.swift in Sources */,
 				4E9AD6A21CB1FEA60028573C /* HostGameViewController.swift in Sources */,
+				4EB1302C1CD967B400F25D9D /* MKEmbedDrawerControllerSegue.swift in Sources */,
+				4EB130321CD967B400F25D9D /* MKRefreshControl.swift in Sources */,
+				4EB130331CD967B400F25D9D /* MKSideDrawerViewController.swift in Sources */,
+				4EB130291CD967B400F25D9D /* MKCardView.swift in Sources */,
 				4E9AD6A01CB1FE970028573C /* ProfileViewController.swift in Sources */,
+				4EB130371CD967B400F25D9D /* MKTextField.swift in Sources */,
+				4EB130361CD967B400F25D9D /* MKTableViewCell.swift in Sources */,
+				4E6400C91CC5703A006106F0 /* HostSessionPageViewController.swift in Sources */,
 				4EB9B4E31CBCCDE200B2D5F8 /* AnotherViewController.swift in Sources */,
 				4EE81AB81CA0923F006FC89B /* ViewController.swift in Sources */,
+				4EB1302F1CD967B400F25D9D /* MKLabel.swift in Sources */,
+				4EB130281CD967B400F25D9D /* MKButton.swift in Sources */,
 				4EE81AB61CA0923F006FC89B /* AppDelegate.swift in Sources */,
 				4E9AD6A41CB1FEB10028573C /* JoinGameViewController.swift in Sources */,
 			);
@@ -346,8 +497,10 @@
 		};
 		4EE81AC51CA0923F006FC89B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 04B42E907492884F5CCDC4DD /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -362,14 +515,18 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "Game-On-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		4EE81AC61CA0923F006FC89B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F4DFB5C0B8A84912456950F1 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -384,6 +541,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "Game-On-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

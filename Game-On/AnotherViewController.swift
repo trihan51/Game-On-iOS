@@ -18,7 +18,10 @@ class AnotherViewController: UIViewController,UITableViewDelegate,UITableViewDat
     
     var chosenOne = PFObject?()
 
+     var chosenTwo = PFObject?()
+    var chosenOne1 = PFObject?()
     
+    var usersLocation = PFGeoPoint()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +37,7 @@ class AnotherViewController: UIViewController,UITableViewDelegate,UITableViewDat
         super.viewDidAppear(true)
         
             print("view did appear")
+        
         self.tableView.reloadData()
     }
     
@@ -47,7 +51,27 @@ class AnotherViewController: UIViewController,UITableViewDelegate,UITableViewDat
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(true)
         passedArray = [PFObject]()
+        self.tableView.reloadData()
         print("viewwilldissapear")
+    }
+    
+    func getNewSessionData(sessionToGet:PFObject)
+    {
+        
+       
+        
+        var query = PFQuery(className: "GameOnSession")
+        query.whereKey("objectId", equalTo: sessionToGet.objectId!)
+        do {
+            chosenOne1 = try query.findObjects()[0]
+            print(chosenOne1?.objectId)
+        }catch
+        {
+            print("error")
+        }
+    
+        
+  
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -70,23 +94,39 @@ class AnotherViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         chosenOne = passedArray[indexPath.row]
         
+        getNewSessionData(chosenOne!)
         var arrayOfCurrUser = [String]()
         var currUser = PFUser.currentUser()?.objectId
+        var chosenTwo = PFObject?()
+        //chosenTwo = getNewSessionData(chosenOne!)
+        //arrayOfCurrUser = chosenOne!["participants"] as! [String]
+        //print(arrayOfCurrUser.count)
+        //arrayOfCurrUser.append(currUser!)
         
-        arrayOfCurrUser = chosenOne!["participants"] as! [String]
-        print(arrayOfCurrUser.count)
-        arrayOfCurrUser.append(currUser!)
-        
+        arrayOfCurrUser = chosenOne1!["participants"] as! [String]
         //print(arrayOfCurrUser[0])
         
-        chosenOne!["participants"] = arrayOfCurrUser
+        arrayOfCurrUser.append(currUser!)
         
-        chosenOne?.saveInBackground()
+        chosenOne1!["participants"] = arrayOfCurrUser
         
+        //chosenOne!["participants"] = arrayOfCurrUser
         
-        print(chosenOne)
+       // chosenTwo?.saveInBackground()
         
-        performSegueWithIdentifier("joinGameSessionSegue", sender: self)
+        chosenOne1!.saveInBackgroundWithBlock({ (success:Bool, error:NSError?) in
+            if (success)
+            {
+                self.performSegueWithIdentifier("joinGameSessionSegue", sender: self)
+
+            } else {
+                print("ERROR SAVING YOU!")
+            }
+        })
+        
+        print(chosenOne1)
+        
+       // performSegueWithIdentifier("joinGameSessionSegue", sender: self)
         
     }
     
@@ -95,7 +135,8 @@ class AnotherViewController: UIViewController,UITableViewDelegate,UITableViewDat
         if(segue.identifier == "joinGameSessionSegue") {
             
             var vc = segue.destinationViewController as! SessionPageViewController
-            vc.passedInObjectId = chosenOne!
+            vc.passedInObjectId = chosenOne1!
+            vc.userLocation = usersLocation
             
             
             
