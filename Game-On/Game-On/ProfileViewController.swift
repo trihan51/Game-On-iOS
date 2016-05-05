@@ -38,9 +38,14 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     @IBAction func logOut(sender: AnyObject) {
         
+      
+        
+        
+        let appDomain = NSBundle.mainBundle().bundleIdentifier!
+        
+        NSUserDefaults.standardUserDefaults().removePersistentDomainForName(appDomain)
         PFUser.logOut()
         
-               
         
        
         print("You have successfully logged out")
@@ -105,9 +110,15 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         super.viewDidLoad()
     
        
-        
+        imageView.layer.cornerRadius = imageView.frame.size.width/2
+        imageView.clipsToBounds = true
         
         imagePicker.delegate = self
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let radiusSearch = defaults.floatForKey("radiusToSearchWithin")
+        
+        radiusSlider.setValue(radiusSearch, animated: true)
         
        
                

@@ -29,7 +29,11 @@ class JoinGameViewController: UIViewController, UITableViewDelegate, UITableView
     
      let locationManager = CLLocationManager()
     
+    var gameToJoin = PFObject?()
+    
     var usersLocation = PFGeoPoint()
+    
+    var alertControlla : UIAlertController?
     
     var longPressRecognizer = UILongPressGestureRecognizer()
     
@@ -72,7 +76,7 @@ class JoinGameViewController: UIViewController, UITableViewDelegate, UITableView
         self.splendorArray = [PFObject]()
         
        // queryData()
-        
+        setUpAlertQuickJoin()
         
        // tableView.registerClass(CustomJoinCell.self, forCellReuseIdentifier: "cell")
        // tableView.delegate = self
@@ -118,8 +122,11 @@ class JoinGameViewController: UIViewController, UITableViewDelegate, UITableView
                     {
                         print("IT WORKSSSSS")
                          let oneTwo = setUpView()
-                        let string = oneTwo[indexPath.row]
-                        print(string)
+                        let gameString = oneTwo[indexPath.row]
+                        print(gameString)
+                        //autoJoin(gameString)
+                        getNewSessionData(gameString)
+                      quickJoin()
                     }
                 
                 
@@ -152,7 +159,101 @@ class JoinGameViewController: UIViewController, UITableViewDelegate, UITableView
     
     
     */
+    /*
+    func autoJoin(gameName:String) -> PFObject
+    {
+        let currentUser = PFUser.currentUser()
+        var query = PFQuery(className: "GameOnSession")
+        query.whereKey("gameTitle", equalTo: gameName)
+        print(gameName)
+        query.whereKey("open", equalTo: true)
+        query.orderByAscending("createdAt")
+        query.whereKey("host", notEqualTo: currentUser!)
+        query.findObjectsInBackgroundWithBlock { (games: [PFObject]?, error: NSError?) in
+            if (error == nil)
+            {
+                 self.gameToJoin = games![0]
+                print(self.gameToJoin)
+            }else {
+                print("error auto joining!")
+            }
+        }
+        print(gameToJoin)
+        return gameToJoin!
+    }
+    */
+    func getNewSessionData(sessionToGet:String)
+    {
+        
+        let currentUser = PFUser.currentUser()
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let radiusSearch = defaults.doubleForKey("radiusToSearchWithin")
+        
+        var query = PFQuery(className: "GameOnSession")
+        query.whereKey("gameTitle", equalTo: sessionToGet)
+        query.whereKey("open", equalTo: true)
+        query.whereKey("host", notEqualTo: currentUser!)
+        query.whereKey("location", nearGeoPoint: usersLocation, withinMiles: radiusSearch)
+        query.orderByAscending("createdAt")
+        do {
+            gameToJoin = try query.findObjects()[0]
+            print(gameToJoin?.objectId)
+        }catch
+        {
+            print("error")
+        }
+        
+        
+        
+    }
+    func segueOne()
+    {
+        self.presentViewController(alertControlla!, animated: true) { 
+            
+        }
+       
+    }
     
+    func setUpAlertQuickJoin()
+    {
+        alertControlla = UIAlertController(title: "Game-On", message: "Quick Joining Now!", preferredStyle: .Alert)
+        
+        
+        let doneAction = UIAlertAction(title: "Thanks!", style: .Default) { (action) in
+            print("Done Pressed")
+            self.performSegueWithIdentifier("quickJoinSegue", sender: self)
+            
+            
+            
+        }
+        
+        
+        alertControlla?.addAction(doneAction)
+        
+        
+    }
+    
+    func quickJoin()
+    {
+         var arrayOfCurrUser = [String]()
+        var currUser = PFUser.currentUser()?.objectId
+        arrayOfCurrUser = gameToJoin!["participants"] as! [String]
+         arrayOfCurrUser.append(currUser!)
+        gameToJoin!["participants"] = arrayOfCurrUser
+        
+        gameToJoin?.saveInBackgroundWithBlock({ (success: Bool, error: NSError?) in
+            if (success)
+            {
+                print("youre saved into session! going to session page now!")
+                self.segueOne()
+            }
+            else {
+                print("error adding you to the session!")
+            }
+        })
+        
+    }
     func queryData()
     {
         let defaults = NSUserDefaults.standardUserDefaults()
@@ -412,6 +513,14 @@ class JoinGameViewController: UIViewController, UITableViewDelegate, UITableView
           
             
            
+        }
+        
+        if (segue.identifier == "quickJoinSegue")
+        {
+            var vc = segue.destinationViewController as! SessionPageViewController
+            
+            vc.passedInObjectId = gameToJoin
+            vc.userLocation = usersLocation
         }
     }
     

@@ -28,6 +28,7 @@
 		4E9AD6A01CB1FE970028573C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9AD69F1CB1FE970028573C /* ProfileViewController.swift */; };
 		4E9AD6A21CB1FEA60028573C /* HostGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9AD6A11CB1FEA60028573C /* HostGameViewController.swift */; };
 		4E9AD6A41CB1FEB10028573C /* JoinGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9AD6A31CB1FEB10028573C /* JoinGameViewController.swift */; };
+		4EAC6C3B1CDAA60A00077E83 /* TestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAC6C3A1CDAA60A00077E83 /* TestController.swift */; };
 		4EB130271CD967B400F25D9D /* MKActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB130161CD967B400F25D9D /* MKActivityIndicator.swift */; };
 		4EB130281CD967B400F25D9D /* MKButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB130171CD967B400F25D9D /* MKButton.swift */; };
 		4EB130291CD967B400F25D9D /* MKCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB130181CD967B400F25D9D /* MKCardView.swift */; };
@@ -79,6 +80,7 @@
 		4E9AD69F1CB1FE970028573C /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = "Game-On/ProfileViewController.swift"; sourceTree = "<group>"; };
 		4E9AD6A11CB1FEA60028573C /* HostGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HostGameViewController.swift; path = "Game-On/HostGameViewController.swift"; sourceTree = "<group>"; };
 		4E9AD6A31CB1FEB10028573C /* JoinGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JoinGameViewController.swift; path = "Game-On/JoinGameViewController.swift"; sourceTree = "<group>"; };
+		4EAC6C3A1CDAA60A00077E83 /* TestController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestController.swift; sourceTree = "<group>"; };
 		4EB130161CD967B400F25D9D /* MKActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKActivityIndicator.swift; sourceTree = "<group>"; };
 		4EB130171CD967B400F25D9D /* MKButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKButton.swift; sourceTree = "<group>"; };
 		4EB130181CD967B400F25D9D /* MKCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKCardView.swift; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 				4E9AD69D1CB1FA150028573C /* LoginViewController.swift */,
 				4EE81AC71CA098FF006FC89B /* RegisterViewController.swift */,
 				4EE81AB91CA0923F006FC89B /* Main.storyboard */,
+				4EAC6C3A1CDAA60A00077E83 /* TestController.swift */,
 				4E6400C81CC57039006106F0 /* HostSessionPageViewController.swift */,
 				4E3F1EED1CC2FE640058ED05 /* SessionPageViewController.swift */,
 				4EF3DD121CB36E7C00C61A37 /* CustomJoinCell.swift */,
@@ -377,6 +380,7 @@
 				4EB130291CD967B400F25D9D /* MKCardView.swift in Sources */,
 				4E9AD6A01CB1FE970028573C /* ProfileViewController.swift in Sources */,
 				4EB130371CD967B400F25D9D /* MKTextField.swift in Sources */,
+				4EAC6C3B1CDAA60A00077E83 /* TestController.swift in Sources */,
 				4EB130361CD967B400F25D9D /* MKTableViewCell.swift in Sources */,
 				4E6400C91CC5703A006106F0 /* HostSessionPageViewController.swift in Sources */,
 				4EB9B4E31CBCCDE200B2D5F8 /* AnotherViewController.swift in Sources */,
