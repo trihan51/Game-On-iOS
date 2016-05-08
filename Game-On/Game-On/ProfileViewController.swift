@@ -20,9 +20,16 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
    let currentUser = PFUser.currentUser()
     var currentUserr = PFUser()
     
+    var passedInObjectSession = PFObject?()
+    
     @IBOutlet weak var radiusSlider: UISlider!
     
     let step: Float = 1
+    
+    let sharedPref = NSUserDefaults.standardUserDefaults()
+    var newSession = PFObject?()
+
+    
     
     @IBAction func radiusSelector(sender: UISlider) {
        
@@ -60,6 +67,58 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         presentViewController(imagePicker, animated: true, completion: nil)
     }
     
+    @IBOutlet weak var backToGameButton: UIButton!
+    
+    @IBAction func goBackToGame(sender: AnyObject) {
+        
+        print("???")
+        
+        
+        let hostedSession = sharedPref.stringForKey("currentSessionHost")
+
+        
+         let sendthis = passedInObjectSession
+        
+        sendthis?.fetchIfNeededInBackgroundWithBlock({ (object:PFObject?, error:NSError?) in
+            print(sendthis?.objectId)
+        })
+        
+        performSegueWithIdentifier("backToSessionHost", sender: self)
+       // print(sendthis!.objectId)
+        
+        
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "backToSessionHost")
+        {
+            var vc = segue.destinationViewController as! HostSessionPageViewController
+            vc.hostedSessionObject = passedInObjectSession
+        }
+    }
+    
+  
+    
+    func findSessionAgain(objectOfGame:String)-> PFObject
+    {
+       
+        
+        var query = PFQuery(className: "GameOnSession")
+        query.whereKey("objectId", equalTo: objectOfGame)
+        query.findObjectsInBackgroundWithBlock { (object:[PFObject]?, error:NSError?) in
+            if (error == nil)
+            {
+                self.newSession = object?[0]
+                //print(self.newSession)
+                
+            } else {
+                print("error")
+            }
+        }
+        
+       return newSession!
+        
+    }
     func queryProfilePicture()
     {
        if currentUser != nil
@@ -120,6 +179,12 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         radiusSlider.setValue(radiusSearch, animated: true)
         
+        let theones = sharedPref.stringForKey("currentSessionHost")
+        if (theones == "")
+        {
+            backToGameButton.hidden = true
+        }
+        
        
                
         
@@ -176,9 +241,15 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         let currentUser = PFUser.currentUser()
+        
         if currentUser != nil
         {
             queryProfilePicture()
+        }
+     
+        if (sharedPref.stringForKey("currentSessionHost") != nil)
+        {
+            backToGameButton.hidden = false
         }
         
     }

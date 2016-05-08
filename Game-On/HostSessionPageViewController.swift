@@ -37,6 +37,8 @@ class HostSessionPageViewController: UIViewController, UITableViewDelegate, UITa
     
     var cancelAlertController: UIAlertController?
     
+    var sharedPref = NSUserDefaults.standardUserDefaults()
+    
     
    // @IBOutlet weak var viewMap: GMSMapView!
    
@@ -67,6 +69,25 @@ class HostSessionPageViewController: UIViewController, UITableViewDelegate, UITa
         }
     }
     
+    
+    @IBAction func minimizeSession(sender: AnyObject) {
+        
+        
+        let sharedPref = NSUserDefaults.standardUserDefaults()
+        sharedPref.setValue(hostedSessionObject?.objectId, forKey: "currentSessionHost")
+        performSegueWithIdentifier("minimizeSession", sender: self)
+
+        
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "minimizeSession")
+        {
+            var vc = segue.destinationViewController as! ProfileViewController
+            vc.passedInObjectSession = hostedSessionObject
+        }
+    }
+    
     @IBAction func cancelSession(sender: AnyObject) {
         
         cancelAlertController = UIAlertController(title: "Cancel session?", message: "Are you sure?", preferredStyle: .Alert)
@@ -75,6 +96,8 @@ class HostSessionPageViewController: UIViewController, UITableViewDelegate, UITa
             print("Yes button pressed")
             
             self.hostedSessionObject?.deleteInBackground()
+           // stringForKey("currentSessionHost")
+            self.sharedPref.removeObjectForKey("currentSessionHost")
             self.performSegueWithIdentifier("cancelledGoHome", sender: self)
             
            
