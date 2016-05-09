@@ -14,7 +14,7 @@ class JoinGameViewController: UIViewController, UITableViewDelegate, UITableView
     
     var gameNames = [String]()
     var test = ["manny", "sam", "bob"]
-    var gameTypes = ["Monopoly", "Chess", "Settlers of Catan", "Splendor", "Werewolf", "Checkers", "Caverna: The Cave Farmers"]
+    var gameTypes = ["Monopoly", "Chess", "Settlers of Catan", "Splendor", "Werewolf", "Checkers", "Caverna: The Cave Farmers", "Scrabble", "Twilight Struggle","Terra Mystica", "Puerto Rico", "Eclipse", "Pandemic Legacy: Season 1"]
     
     var chessArray = [PFObject]()
     var monopolyArray = [PFObject]()
@@ -23,6 +23,13 @@ class JoinGameViewController: UIViewController, UITableViewDelegate, UITableView
     var werewolfArray = [PFObject]()
     var checkersArray = [PFObject]()
     var cavernaArray = [PFObject]()
+      var scrabbleArray = [PFObject]()
+      var twilightArray = [PFObject]()
+      var terramysticaArray = [PFObject]()
+      var eclipseArray = [PFObject]()
+      var pandemicArray = [PFObject]()
+      var puertoricoArray = [PFObject]()
+    
     
     var chosenSessions = String()
     var timer = NSTimer()
@@ -48,6 +55,12 @@ class JoinGameViewController: UIViewController, UITableViewDelegate, UITableView
         self.werewolfArray = [PFObject]()
         self.checkersArray = [PFObject]()
         self.cavernaArray = [PFObject]()
+        self.scrabbleArray = [PFObject]()
+        self.terramysticaArray = [PFObject]()
+        self.eclipseArray = [PFObject]()
+        self.pandemicArray = [PFObject]()
+        self.puertoricoArray = [PFObject]()
+        self.twilightArray  = [PFObject]()
         self.chosenSessions = String()
         
         queryData()
@@ -376,6 +389,31 @@ class JoinGameViewController: UIViewController, UITableViewDelegate, UITableView
         {
             cavernaArray.append(game)
         }
+        else if(gameID as! String == "Scrabble")
+        {
+            scrabbleArray.append(game)
+        }
+        else if(gameID as! String == "Twilight Struggle")
+        {
+            twilightArray.append(game)
+        }
+        else if(gameID as! String == "Terra Mystica")
+        {
+            terramysticaArray.append(game)
+        }
+        else if(gameID as! String == "Eclipse")
+        {
+            eclipseArray.append(game)
+        }
+        else if(gameID as! String == "Pandemic Legacy: Season 1")
+        {
+            pandemicArray.append(game)
+        }
+        else if(gameID as! String == "Puerto Rico")
+        {
+            puertoricoArray.append(game)
+        }
+        
        
          //print(chessArray)
          //print(monopolyArray)
@@ -419,6 +457,50 @@ class JoinGameViewController: UIViewController, UITableViewDelegate, UITableView
         return gameTypes.count
     }*/
     
+    func queryNumOfgames(thisgame:String)-> Int
+    {
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let radiusSearch = defaults.doubleForKey("radiusToSearchWithin")
+        
+        
+        if (radiusSearch != 0)
+        {
+        var query = PFQuery(className: "GameOnSession")
+        query.whereKey("open", equalTo: true)
+       query.whereKey("gameTitle", equalTo: thisgame)
+        query.whereKey("host", notEqualTo: PFUser.currentUser()!)
+        query.whereKey("location", nearGeoPoint: usersLocation, withinMiles: radiusSearch)
+        do {
+            let countOfGamez = try query.findObjects()
+            print(countOfGamez.count)
+            return countOfGamez.count
+        }catch
+        {
+            return 0
+            print("error")
+        }
+        }
+        else {
+            var query = PFQuery(className: "GameOnSession")
+            query.whereKey("open", equalTo: true)
+            query.whereKey("gameTitle", equalTo: thisgame)
+            query.whereKey("host", notEqualTo: PFUser.currentUser()!)
+            do {
+                let countOfGamez = try query.findObjects()
+                print(countOfGamez.count)
+                return countOfGamez.count
+            }catch
+            {
+                return 0
+                print("error")
+            }
+        }
+
+
+        
+    }
+    
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -435,6 +517,13 @@ class JoinGameViewController: UIViewController, UITableViewDelegate, UITableView
         let oneTwo = setUpView()
         
             cell.boardGameName?.text = oneTwo[indexPath.row]
+        
+        
+        let numOfGames = oneTwo[indexPath.row]
+        let thisnumer = queryNumOfgames(numOfGames)
+        cell.numParticipants?.text = String(thisnumer)
+        
+        
         
         //cell.addGestureRecognizer(longPressRecognizer)
         
@@ -490,6 +579,31 @@ class JoinGameViewController: UIViewController, UITableViewDelegate, UITableView
            
             performSegueWithIdentifier("joinGameSegue", sender: self)
         }
+       else if(stringy == "Scrabble")
+       {
+         performSegueWithIdentifier("joinGameSegue", sender: self)
+       }
+       else if(stringy == "Twilight Struggle")
+       {
+         performSegueWithIdentifier("joinGameSegue", sender: self)
+       }
+       else if(stringy == "Terra Mystica")
+       {
+        performSegueWithIdentifier("joinGameSegue", sender: self)
+       }
+       else if(stringy == "Eclipse")
+       {
+         performSegueWithIdentifier("joinGameSegue", sender: self)
+       }
+       else if(stringy == "Pandemic Legacy: Season 1")
+       {
+         performSegueWithIdentifier("joinGameSegue", sender: self)
+       }
+       else if(stringy == "Puerto Rico")
+       {
+         performSegueWithIdentifier("joinGameSegue", sender: self)
+        }
+
         
         
     }
@@ -530,7 +644,38 @@ class JoinGameViewController: UIViewController, UITableViewDelegate, UITableView
             {
                 vc.passedArray = cavernaArray
                 vc.usersLocation = usersLocation
+            }  else if(chosenSessions == "Scrabble")
+            {
+                vc.passedArray = scrabbleArray
+                vc.usersLocation = usersLocation
             }
+            else if(chosenSessions == "Twilight Struggle")
+            {
+                vc.passedArray = twilightArray
+                vc.usersLocation = usersLocation
+            }
+            else if(chosenSessions == "Terra Mystica")
+            {
+                vc.passedArray = terramysticaArray
+                vc.usersLocation = usersLocation
+            }
+            else if(chosenSessions == "Eclipse")
+            {
+                vc.passedArray = cavernaArray
+                vc.usersLocation = usersLocation
+            }
+            else if(chosenSessions == "Pandemic Legacy: Season 1")
+            {
+                vc.passedArray = pandemicArray
+                vc.usersLocation = usersLocation
+            }
+            else if(chosenSessions == "Puerto Rico")
+            {
+                vc.passedArray = puertoricoArray
+                vc.usersLocation = usersLocation
+            }
+            
+            
           
             
            
@@ -600,6 +745,31 @@ class JoinGameViewController: UIViewController, UITableViewDelegate, UITableView
         {
             existss.append("Caverna: The Cave Farmers")
         }
+        if (countGames(scrabbleArray) == true)
+        {
+            existss.append("Scrabble")
+        }
+        if (countGames(twilightArray) == true)
+        {
+            existss.append("Twilight Struggle")
+        }
+        if (countGames(terramysticaArray) == true)
+        {
+            existss.append("Terra Mystica")
+        }
+        if (countGames(eclipseArray) == true)
+        {
+            existss.append("Eclipse")
+        }
+        if (countGames(pandemicArray) == true)
+        {
+            existss.append("Pandemic Legacy: Season 1")
+        }
+        if (countGames(puertoricoArray) == true)
+        {
+            existss.append("Puerto Rico")
+        }
+        
         
         return existss
         

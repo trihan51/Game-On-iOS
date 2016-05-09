@@ -13,7 +13,7 @@ import Parse
 class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
     @IBOutlet weak var testLabel: UILabel!
-    @IBOutlet weak var imageView: MKImageView!
+    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var userInfolabel: UILabel!
     let imagePicker = UIImagePickerController()
 
@@ -142,8 +142,10 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 {
                     imagedisplay.getDataInBackgroundWithBlock { (result, error) in
                         if (error == nil)
-                        {self.imageView.contentMode = .ScaleAspectFit
+                        {
+                            self.imageView.contentMode = .ScaleAspectFill
                             self.imageView.image = UIImage(data: result!)
+                            self.imageView.clipsToBounds = true
                             
                             
                         }else {
@@ -175,7 +177,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
        
         imageView.layer.cornerRadius = imageView.frame.size.width/2
-        imageView.clipsToBounds = true
+        
+       
         
         imagePicker.delegate = self
         

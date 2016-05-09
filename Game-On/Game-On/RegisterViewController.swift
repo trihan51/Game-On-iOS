@@ -12,13 +12,16 @@ import Parse
 class RegisterViewController: UIViewController,UITextFieldDelegate{
     
     
-    @IBOutlet weak var userFirstName: UITextField!
+    @IBOutlet weak var userFirstName: MKTextField!
     
-    @IBOutlet weak var userLastName: UITextField!
-    @IBOutlet weak var userEmail: UITextField!
-    @IBOutlet weak var userPassword: UITextField!
+    @IBOutlet weak var userLastName: MKTextField!
+    @IBOutlet weak var userEmail: MKTextField!
+    @IBOutlet weak var userPassword: MKTextField!
     
-    @IBOutlet weak var userPassword2: UITextField!
+    @IBOutlet weak var userUsername: MKTextField!
+    @IBOutlet weak var userPassword2: MKTextField!
+    
+    var passwordNotSameAlert: UIAlertController?
     
     override func viewDidLoad() {
         self.userFirstName.delegate = self;
@@ -26,6 +29,22 @@ class RegisterViewController: UIViewController,UITextFieldDelegate{
         self.userEmail.delegate = self;
         self.userPassword.delegate=self;
         self.userPassword2.delegate = self;
+        self.userUsername.delegate = self;
+        
+        setUpPasswordAlert()
+        
+    }
+    
+    func setUpPasswordAlert()
+    {
+        
+        passwordNotSameAlert = UIAlertController(title: "Error", message: "Passwords do not match!", preferredStyle: .Alert)
+        
+        let okayAction = UIAlertAction(title: "Okay", style: .Default) { (action) in
+            
+        }
+        
+        passwordNotSameAlert?.addAction(okayAction)
         
     }
     
@@ -33,13 +52,24 @@ class RegisterViewController: UIViewController,UITextFieldDelegate{
        
         var email = userEmail.text
         var pass1 = userPassword.text
+        var pass2 = userPassword2.text
         var firstname = userFirstName.text
         var lastname = userLastName.text
+        var username = userUsername.text
         
-        if email != "" && pass1 != "" &&  firstname != "" && lastname != ""
+        if email != "" && pass1 != "" &&  firstname != "" && lastname != "" && username != "" && pass2 != ""
         {
             //no blank fields, proceed to sign up
-            signUp()
+            if (pass1 == pass2)
+            {
+                signUp()
+            } else {
+                self.presentViewController(passwordNotSameAlert!, animated: true, completion: {
+                    pass1 = ""
+                    pass2 = ""
+                })
+            }
+           
         }
         else{
             print("error, empty fields")
@@ -52,11 +82,13 @@ class RegisterViewController: UIViewController,UITextFieldDelegate{
         var pass1 = userPassword.text
         var firstname = userFirstName.text
         var lastname = userLastName.text
+        var username = userUsername.text
         
         var user = PFUser()
-        user.username = email
+        user.email = email
+        user.username = username
         user.password = pass1
-        user["Name"] = firstname
+        user["firstName"] = firstname
         user["lastName"] = lastname
         
         
@@ -68,6 +100,7 @@ class RegisterViewController: UIViewController,UITextFieldDelegate{
                 print(errorString)
             } else {
                 // Hooray! Let them use the app now.
+                self.performSegueWithIdentifier("registerSuccess", sender: self)
                 print("succesfully registered!")
             }
         }
@@ -79,7 +112,9 @@ class RegisterViewController: UIViewController,UITextFieldDelegate{
             case userFirstName:
                 userLastName.becomeFirstResponder()
             case userLastName:
-                userEmail.becomeFirstResponder()
+                userUsername.becomeFirstResponder()
+        case userUsername:
+            userEmail.becomeFirstResponder()
             case userEmail:
                 userPassword.becomeFirstResponder()
             case userPassword:

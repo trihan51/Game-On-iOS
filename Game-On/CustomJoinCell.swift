@@ -16,6 +16,7 @@ class CustomJoinCell: MKTableViewCell {
     
     @IBOutlet weak var gamePic: UIImageView!
     
+    @IBOutlet weak var numParticipants: UILabel!
     
     @IBOutlet weak var boardGameName3: UILabel!
     @IBOutlet weak var specificSession: UILabel!

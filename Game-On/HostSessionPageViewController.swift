@@ -129,7 +129,9 @@ class HostSessionPageViewController: UIViewController, UITableViewDelegate, UITa
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //NSNotificationCenter.defaultCenter().addObserver(self, selector: "pauseApp", name: UIApplicationDidEnterBackgroundNotification, object: nil)
         
+       // NSNotificationCenter.defaultCenter().addObserver(self, selector: "startApp", name: UIApplicationDidBecomeActiveNotification, object: nil)
         
          timer = NSTimer.scheduledTimerWithTimeInterval(8, target: self, selector: "update", userInfo: nil, repeats: true)
         
@@ -162,6 +164,8 @@ class HostSessionPageViewController: UIViewController, UITableViewDelegate, UITa
      
         
     }
+    
+   
     
     func countdowns() {
         /**
