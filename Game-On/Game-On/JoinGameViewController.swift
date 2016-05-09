@@ -190,20 +190,41 @@ class JoinGameViewController: UIViewController, UITableViewDelegate, UITableView
         let defaults = NSUserDefaults.standardUserDefaults()
         let radiusSearch = defaults.doubleForKey("radiusToSearchWithin")
         
-        var query = PFQuery(className: "GameOnSession")
-        query.whereKey("gameTitle", equalTo: sessionToGet)
-        query.whereKey("open", equalTo: true)
-        query.whereKey("host", notEqualTo: currentUser!)
-        query.whereKey("location", nearGeoPoint: usersLocation, withinMiles: radiusSearch)
-        query.orderByAscending("createdAt")
-        do {
-            gameToJoin = try query.findObjects()[0]
-            print(gameToJoin?.objectId)
-        }catch
+        if (radiusSearch == 0)
         {
-            print("error")
+            var query = PFQuery(className: "GameOnSession")
+            query.whereKey("gameTitle", equalTo: sessionToGet)
+            query.whereKey("open", equalTo: true)
+            query.whereKey("host", notEqualTo: currentUser!)
+           // query.whereKey("location", nearGeoPoint: usersLocation, withinMiles: radiusSearch)
+            query.orderByAscending("createdAt")
+            do {
+                gameToJoin = try query.findObjects()[0]
+                print(gameToJoin?.objectId)
+            }catch
+            {
+                print("error")
+            }
+        } else {
+            
+            var query = PFQuery(className: "GameOnSession")
+            query.whereKey("gameTitle", equalTo: sessionToGet)
+            query.whereKey("open", equalTo: true)
+            query.whereKey("host", notEqualTo: currentUser!)
+            query.whereKey("location", nearGeoPoint: usersLocation, withinMiles: radiusSearch)
+            query.orderByAscending("createdAt")
+            do {
+                gameToJoin = try query.findObjects()[0]
+                print(gameToJoin?.objectId)
+            }catch
+            {
+                print("error")
+            }
+            
+            
         }
         
+      
         
         
     }
