@@ -22,12 +22,16 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     var passedInObjectSession = PFObject?()
     
+    var countdownTimer = NSTimer()
+    
     @IBOutlet weak var radiusSlider: UISlider!
     
     let step: Float = 1
     
     let sharedPref = NSUserDefaults.standardUserDefaults()
     var newSession = PFObject?()
+    
+    var selftime = Int()
 
     
     
@@ -77,6 +81,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         let hostedSession = sharedPref.stringForKey("currentSessionHost")
 
         
+        countdownTimer.invalidate()
          let sendthis = passedInObjectSession
         
         sendthis?.fetchIfNeededInBackgroundWithBlock({ (object:PFObject?, error:NSError?) in
@@ -177,6 +182,17 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         let defaults = NSUserDefaults.standardUserDefaults()
         let radiusSearch = defaults.floatForKey("radiusToSearchWithin")
         
+        
+        
+       var passedintime =  sharedPref.integerForKey("countdowntime")
+        
+        
+        if (passedintime != 0)
+        {
+            selftime = passedintime
+            countdownTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "countdowns", userInfo: nil, repeats: true)
+        }
+        
         radiusSlider.setValue(radiusSearch, animated: true)
         
         let theones = sharedPref.stringForKey("currentSessionHost")
@@ -187,6 +203,22 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         
        
                
+        
+    }
+    
+    func countdowns() {
+        /**
+         ADD THE CODE TO UPDATE THE DATA SOURCE
+         **/
+        
+        
+        selftime -= 1
+        
+        
+        dispatch_async(dispatch_get_main_queue())
+        {
+            self.sharedPref.setInteger(self.selftime, forKey: "countdowntime")
+        }
         
     }
     

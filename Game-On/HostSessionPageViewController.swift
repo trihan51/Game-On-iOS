@@ -19,6 +19,7 @@ class HostSessionPageViewController: UIViewController, UITableViewDelegate, UITa
     
     var hostedSessionObject = PFObject?()
    
+    @IBOutlet weak var timerLabel: UILabel!
     
     @IBOutlet weak var imageView: UIImageView!
     
@@ -31,6 +32,8 @@ class HostSessionPageViewController: UIViewController, UITableViewDelegate, UITa
     
    var timer = NSTimer()
     
+    var countdownTimer = NSTimer()
+    
     var hostLocation = PFGeoPoint()
     
     var alertController: UIAlertController?
@@ -38,6 +41,8 @@ class HostSessionPageViewController: UIViewController, UITableViewDelegate, UITa
     var cancelAlertController: UIAlertController?
     
     var sharedPref = NSUserDefaults.standardUserDefaults()
+    
+    var count = 1200
     
     
    // @IBOutlet weak var viewMap: GMSMapView!
@@ -75,6 +80,7 @@ class HostSessionPageViewController: UIViewController, UITableViewDelegate, UITa
         
         let sharedPref = NSUserDefaults.standardUserDefaults()
         sharedPref.setValue(hostedSessionObject?.objectId, forKey: "currentSessionHost")
+        countdownTimer.invalidate()
         performSegueWithIdentifier("minimizeSession", sender: self)
 
         
@@ -98,6 +104,9 @@ class HostSessionPageViewController: UIViewController, UITableViewDelegate, UITa
             self.hostedSessionObject?.deleteInBackground()
            // stringForKey("currentSessionHost")
             self.sharedPref.removeObjectForKey("currentSessionHost")
+            
+            self.countdownTimer.invalidate()
+            self.sharedPref.setInteger(0, forKey: "countdowntime")
             self.performSegueWithIdentifier("cancelledGoHome", sender: self)
             
            
@@ -124,6 +133,17 @@ class HostSessionPageViewController: UIViewController, UITableViewDelegate, UITa
         
          timer = NSTimer.scheduledTimerWithTimeInterval(8, target: self, selector: "update", userInfo: nil, repeats: true)
         
+        
+        var passedin = sharedPref.integerForKey("countdowntime")
+        
+        if (passedin != 0)
+        {
+            countdownTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "countdowns1", userInfo: nil, repeats: true)
+            
+        } else {
+             countdownTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "countdowns", userInfo: nil, repeats: true)
+        }
+        
        
         
         print("in the sesion for host now")
@@ -140,6 +160,52 @@ class HostSessionPageViewController: UIViewController, UITableViewDelegate, UITa
       
         
      
+        
+    }
+    
+    func countdowns() {
+        /**
+         ADD THE CODE TO UPDATE THE DATA SOURCE
+         **/
+        var passedin = sharedPref.integerForKey("countdowntime")
+        
+        count -= 1
+        
+        var seconds = passedin % 60
+        var minutes = (passedin / 60) % 60
+        
+        
+        
+        timerLabel.text = NSString.localizedStringWithFormat("%dm:%ds", minutes,seconds) as String
+        
+        
+        dispatch_async(dispatch_get_main_queue())
+        {
+            self.sharedPref.setInteger(self.count, forKey: "countdowntime")
+        }
+        
+    }
+    
+    func countdowns1() {
+        /**
+         ADD THE CODE TO UPDATE THE DATA SOURCE
+         **/
+        
+        var passedin = sharedPref.integerForKey("countdowntime")
+        
+        passedin -= 1
+        
+        var seconds = passedin % 60
+        var minutes = (passedin / 60) % 60
+        
+        
+        
+        timerLabel.text = NSString.localizedStringWithFormat("%dm:%ds", minutes,seconds) as String
+        
+        dispatch_async(dispatch_get_main_queue())
+        {
+            self.sharedPref.setInteger(passedin, forKey: "countdowntime")
+        }
         
     }
     

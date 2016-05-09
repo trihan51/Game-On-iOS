@@ -1052,6 +1052,12 @@
                                     <action selector="minimizeSession:" destination="yuH-2X-9rx" eventType="touchUpInside" id="Gtq-hk-Kj8"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fOc-Ms-Ihv">
+                                <rect key="frame" x="481" y="32" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="0.93806573275862071" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1077,9 +1083,11 @@
                             <constraint firstItem="dpc-If-Q57" firstAttribute="trailing" secondItem="73z-s4-Xh4" secondAttribute="trailing" id="dGI-8z-lU4"/>
                             <constraint firstItem="z5t-fz-94S" firstAttribute="leading" secondItem="S0r-IQ-IUo" secondAttribute="leading" id="dYh-8F-FNH"/>
                             <constraint firstItem="dpc-If-Q57" firstAttribute="leading" secondItem="73z-s4-Xh4" secondAttribute="leading" id="dl1-wP-3Pk"/>
+                            <constraint firstItem="z5t-fz-94S" firstAttribute="top" secondItem="fOc-Ms-Ihv" secondAttribute="bottom" constant="8" symbolic="YES" id="e1T-3K-lht"/>
                             <constraint firstAttribute="trailingMargin" secondItem="KEJ-m9-MGn" secondAttribute="trailing" constant="8" id="fQQ-gW-fVU"/>
                             <constraint firstItem="C6m-Va-rUC" firstAttribute="leading" secondItem="32F-w6-KTN" secondAttribute="leadingMargin" constant="9" id="gqz-cZ-C7O"/>
                             <constraint firstItem="jql-q4-zfA" firstAttribute="leading" secondItem="32F-w6-KTN" secondAttribute="leading" constant="200" id="hGE-66-7S9"/>
+                            <constraint firstItem="iX7-K9-uHW" firstAttribute="leading" secondItem="fOc-Ms-Ihv" secondAttribute="trailing" constant="8" symbolic="YES" id="ksh-Rb-9vJ"/>
                             <constraint firstItem="z5t-fz-94S" firstAttribute="top" secondItem="iX7-K9-uHW" secondAttribute="bottom" constant="8" symbolic="YES" id="mPp-H6-6GH"/>
                             <constraint firstItem="M9l-t9-fJi" firstAttribute="trailing" secondItem="z5t-fz-94S" secondAttribute="trailing" id="mVm-Dl-kC0"/>
                             <constraint firstItem="M9l-t9-fJi" firstAttribute="leading" secondItem="32F-w6-KTN" secondAttribute="leading" id="naT-96-phw"/>
@@ -1093,6 +1101,7 @@
                         <outlet property="hostDisplay" destination="8Zo-gW-6Ho" id="M6g-de-YlN"/>
                         <outlet property="imageView" destination="z5t-fz-94S" id="Bmh-lI-MDR"/>
                         <outlet property="tableView" destination="dpc-If-Q57" id="sNt-DJ-0VB"/>
+                        <outlet property="timerLabel" destination="fOc-Ms-Ihv" id="0AP-SP-k1B"/>
                         <outlet property="viewMap" destination="73z-s4-Xh4" id="oGb-8B-PnW"/>
                         <segue destination="EdD-Rg-Ou2" kind="show" identifier="cancelledGoHome" id="k3u-Dn-jMW"/>
                         <segue destination="i7F-ap-6eo" kind="show" identifier="minimizeSession" id="8kY-nA-23e"/>
