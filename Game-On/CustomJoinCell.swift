@@ -24,6 +24,8 @@ class CustomJoinCell: MKTableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        gamePic.contentMode = .ScaleAspectFill
+        
         //initialization code
     }
     
