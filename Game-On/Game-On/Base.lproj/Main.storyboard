@@ -17,12 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game-On" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gL2-cR-KGy">
-                                <rect key="frame" x="263" y="144" width="75" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ch-MJ-OvU" customClass="MKButton" customModule="Game_On" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="507" width="600" height="93"/>
                                 <color key="backgroundColor" red="0.95686274509803915" green="0.2627450980392157" blue="0.21176470588235294" alpha="1" colorSpace="calibratedRGB"/>
@@ -64,17 +58,25 @@
                                     <segue destination="sQw-yw-6lV" kind="show" id="T9R-DE-gWD"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game-On" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="gL2-cR-KGy">
+                                <rect key="frame" x="20" y="134" width="560" height="175"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="74"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.2666666667" green="0.54117647059999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="gL2-cR-KGy" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="143-mj-TGh"/>
+                            <constraint firstItem="0lj-Xx-4Ny" firstAttribute="top" secondItem="gL2-cR-KGy" secondAttribute="bottom" constant="107" id="1Ug-5K-IDR"/>
                             <constraint firstItem="0lj-Xx-4Ny" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="70r-zX-gWV"/>
                             <constraint firstItem="0lj-Xx-4Ny" firstAttribute="leading" secondItem="5ch-MJ-OvU" secondAttribute="leading" id="9lU-Ph-w3j"/>
-                            <constraint firstItem="gL2-cR-KGy" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="124" id="C6P-5V-aYN"/>
-                            <constraint firstItem="0lj-Xx-4Ny" firstAttribute="centerX" secondItem="gL2-cR-KGy" secondAttribute="centerX" id="QPK-AS-72B"/>
                             <constraint firstItem="5ch-MJ-OvU" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="Xmr-f3-xjO"/>
                             <constraint firstItem="0lj-Xx-4Ny" firstAttribute="trailing" secondItem="5ch-MJ-OvU" secondAttribute="trailing" id="ffk-jE-sDt"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="0lj-Xx-4Ny" secondAttribute="bottom" constant="91" id="jkT-RA-umj"/>
-                            <constraint firstItem="gL2-cR-KGy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="u0T-V2-cbb"/>
+                            <constraint firstItem="gL2-cR-KGy" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="114" id="sHU-Or-PPE"/>
+                            <constraint firstItem="gL2-cR-KGy" firstAttribute="centerX" secondItem="0lj-Xx-4Ny" secondAttribute="centerX" id="wEh-Bb-4Qm"/>
+                            <constraint firstAttribute="trailing" secondItem="0lj-Xx-4Ny" secondAttribute="trailing" id="xaF-Dy-8EY"/>
                         </constraints>
                     </view>
                     <connections>
@@ -97,8 +99,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vt5-Oi-0jP">
-                                <rect key="frame" x="268" y="67" width="64" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vt5-Oi-0jP">
+                                <rect key="frame" x="332" y="67" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -109,54 +111,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1vK-Wh-auk" customClass="MKTextField" customModule="Game_On" customModuleProvider="target">
-                                <rect key="frame" x="187" y="159" width="113" height="30"/>
-                                <color key="backgroundColor" red="0.26666666666666666" green="0.54117647058823526" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jLy-BB-aSy" customClass="MKTextField" customModule="Game_On" customModuleProvider="target">
-                                <rect key="frame" x="301" y="159" width="113" height="30"/>
-                                <color key="backgroundColor" red="0.26666666666666666" green="0.54117647058823526" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="113" id="RfS-00-4QL"/>
-                                </constraints>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uxS-oA-LMx" customClass="MKTextField" customModule="Game_On" customModuleProvider="target">
-                                <rect key="frame" x="187" y="261" width="227" height="30"/>
-                                <color key="backgroundColor" red="0.26666666666666666" green="0.54117647058823526" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="D4z-sf-9nY"/>
-                                </constraints>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ngU-YE-gqg" customClass="MKTextField" customModule="Game_On" customModuleProvider="target">
-                                <rect key="frame" x="187" y="314" width="227" height="30"/>
-                                <color key="backgroundColor" red="0.26666666666666666" green="0.54117647058823526" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="vGf-IP-8ls"/>
-                                </constraints>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gbY-zV-exP" customClass="MKTextField" customModule="Game_On" customModuleProvider="target">
-                                <rect key="frame" x="187" y="363" width="227" height="30"/>
-                                <color key="backgroundColor" red="0.26666666666666666" green="0.54117647058823526" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="FLg-wd-hy5"/>
-                                </constraints>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ixN-H9-lx6" customClass="MKButton" customModule="Game_On" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ixN-H9-lx6" customClass="MKButton" customModule="Game_On" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="414" width="600" height="93"/>
                                 <color key="backgroundColor" red="0.050980392156862744" green="0.27843137254901962" blue="0.63137254901960782" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -174,7 +129,7 @@
                                     <action selector="verifyRegistrationInfo:" destination="RgA-QR-hGQ" eventType="touchUpInside" id="ibT-y8-b47"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XJv-Pu-8Pa" customClass="MKButton" customModule="Game_On" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XJv-Pu-8Pa" customClass="MKButton" customModule="Game_On" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="507" width="600" height="93"/>
                                 <color key="backgroundColor" red="0.95686274509803915" green="0.2627450980392157" blue="0.21176470588235294" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Cancel">
@@ -190,16 +145,6 @@
                                     <segue destination="BYZ-38-t0r" kind="show" id="98z-UZ-2hZ"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LtT-Nh-A6O" customClass="MKTextField" customModule="Game_On" customModuleProvider="target">
-                                <rect key="frame" x="187" y="210" width="227" height="30"/>
-                                <color key="backgroundColor" red="0.2666666667" green="0.54117647059999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="fED-yc-pRt"/>
-                                </constraints>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LTp-Oo-pPz" customClass="MKLabel" customModule="Game_On" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="15" width="600" height="44"/>
                                 <color key="backgroundColor" red="0.050980392159999999" green="0.2784313725" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -207,7 +152,7 @@
                                     <constraint firstAttribute="height" constant="44" id="EvW-0q-yD6"/>
                                 </constraints>
                                 <attributedString key="attributedText">
-                                    <fragment content=" Game On">
+                                    <fragment content="Register">
                                         <attributes>
                                             <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <font key="NSFont" size="17" name="HelveticaNeue"/>
@@ -224,6 +169,111 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First Name..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1vK-Wh-auk" customClass="IsaoTextField" customModule="Game_On" customModuleProvider="target">
+                                <rect key="frame" x="187" y="114" width="113" height="30"/>
+                                <color key="backgroundColor" red="0.2666666667" green="0.54117647059999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="inactiveColor">
+                                        <color key="value" red="0.97647058819999999" green="0.94901960780000005" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="activeColor">
+                                        <color key="value" red="0.95686274509803915" green="0.2627450980392157" blue="0.21176470588235294" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last Name..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jLy-BB-aSy" customClass="IsaoTextField" customModule="Game_On" customModuleProvider="target">
+                                <rect key="frame" x="301" y="114" width="113" height="30"/>
+                                <color key="backgroundColor" red="0.26666666666666666" green="0.54117647058823526" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="113" id="RfS-00-4QL"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="inactiveColor">
+                                        <color key="value" red="0.97647058819999999" green="0.94901960780000005" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="activeColor">
+                                        <color key="value" red="0.95686274509803915" green="0.2627450980392157" blue="0.21176470588235294" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uxS-oA-LMx" customClass="IsaoTextField" customModule="Game_On" customModuleProvider="target">
+                                <rect key="frame" x="187" y="216" width="227" height="30"/>
+                                <color key="backgroundColor" red="0.26666666666666666" green="0.54117647058823526" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="D4z-sf-9nY"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="inactiveColor">
+                                        <color key="value" red="0.97647058819999999" green="0.94901960780000005" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="activeColor">
+                                        <color key="value" red="0.95686274509803915" green="0.2627450980392157" blue="0.21176470588235294" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ngU-YE-gqg" customClass="IsaoTextField" customModule="Game_On" customModuleProvider="target">
+                                <rect key="frame" x="187" y="269" width="227" height="30"/>
+                                <color key="backgroundColor" red="0.26666666666666666" green="0.54117647058823526" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="vGf-IP-8ls"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="inactiveColor">
+                                        <color key="value" red="0.97647058819999999" green="0.94901960780000005" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="activeColor">
+                                        <color key="value" red="0.95686274509803915" green="0.2627450980392157" blue="0.21176470588235294" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gbY-zV-exP" customClass="IsaoTextField" customModule="Game_On" customModuleProvider="target">
+                                <rect key="frame" x="187" y="318" width="227" height="30"/>
+                                <color key="backgroundColor" red="0.26666666666666666" green="0.54117647058823526" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="FLg-wd-hy5"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="inactiveColor">
+                                        <color key="value" red="0.97647058819999999" green="0.94901960780000005" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="activeColor">
+                                        <color key="value" red="0.95686274509803915" green="0.2627450980392157" blue="0.21176470588235294" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LtT-Nh-A6O" customClass="IsaoTextField" customModule="Game_On" customModuleProvider="target">
+                                <rect key="frame" x="187" y="165" width="227" height="30"/>
+                                <color key="backgroundColor" red="0.2666666667" green="0.54117647059999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="fED-yc-pRt"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="inactiveColor">
+                                        <color key="value" red="0.97647058819999999" green="0.94901960780000005" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="activeColor">
+                                        <color key="value" red="0.95686274509803915" green="0.2627450980392157" blue="0.21176470588235294" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.26666666666666666" green="0.54117647058823526" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -233,10 +283,10 @@
                             <constraint firstItem="gbY-zV-exP" firstAttribute="top" secondItem="ngU-YE-gqg" secondAttribute="bottom" constant="19" id="BKc-bL-fuG"/>
                             <constraint firstItem="LtT-Nh-A6O" firstAttribute="leading" secondItem="uxS-oA-LMx" secondAttribute="leading" id="CiY-KL-Qi0"/>
                             <constraint firstItem="gbY-zV-exP" firstAttribute="centerX" secondItem="ixN-H9-lx6" secondAttribute="centerX" id="Cma-an-JAa"/>
-                            <constraint firstItem="1vK-Wh-auk" firstAttribute="top" secondItem="vt5-Oi-0jP" secondAttribute="bottom" constant="71" id="FHt-YU-nr0"/>
+                            <constraint firstItem="1vK-Wh-auk" firstAttribute="top" secondItem="vt5-Oi-0jP" secondAttribute="bottom" constant="47" id="FHt-YU-nr0"/>
                             <constraint firstAttribute="bottom" secondItem="Ghx-ah-2PC" secondAttribute="bottom" constant="156" id="FjW-TO-iOX"/>
                             <constraint firstItem="1vK-Wh-auk" firstAttribute="baseline" secondItem="jLy-BB-aSy" secondAttribute="baseline" id="Gcs-O4-gje"/>
-                            <constraint firstItem="LTp-Oo-pPz" firstAttribute="centerX" secondItem="vt5-Oi-0jP" secondAttribute="centerX" id="IMU-FL-vE0"/>
+                            <constraint firstItem="LTp-Oo-pPz" firstAttribute="centerX" secondItem="vt5-Oi-0jP" secondAttribute="centerX" constant="-32" id="IMU-FL-vE0"/>
                             <constraint firstItem="XJv-Pu-8Pa" firstAttribute="bottom" secondItem="miA-MW-eRV" secondAttribute="top" id="LZt-vM-UlC"/>
                             <constraint firstItem="XJv-Pu-8Pa" firstAttribute="top" secondItem="ixN-H9-lx6" secondAttribute="bottom" id="NWB-Sh-qjt"/>
                             <constraint firstItem="XJv-Pu-8Pa" firstAttribute="top" secondItem="ixN-H9-lx6" secondAttribute="bottom" id="Nhi-02-Abz"/>
@@ -250,10 +300,10 @@
                             <constraint firstItem="uxS-oA-LMx" firstAttribute="top" secondItem="LtT-Nh-A6O" secondAttribute="bottom" constant="21" id="bWh-Ht-xkw"/>
                             <constraint firstItem="LTp-Oo-pPz" firstAttribute="trailing" secondItem="ixN-H9-lx6" secondAttribute="trailing" id="bzi-ki-ZGk"/>
                             <constraint firstItem="OG4-P5-hfQ" firstAttribute="leading" secondItem="5dn-48-hMH" secondAttribute="leading" id="dcg-1A-rC5"/>
-                            <constraint firstItem="ixN-H9-lx6" firstAttribute="top" secondItem="gbY-zV-exP" secondAttribute="bottom" constant="21" id="eSt-3G-6bb"/>
+                            <constraint firstItem="ixN-H9-lx6" firstAttribute="top" secondItem="gbY-zV-exP" secondAttribute="bottom" constant="66" id="eSt-3G-6bb"/>
                             <constraint firstItem="ixN-H9-lx6" firstAttribute="trailing" secondItem="XJv-Pu-8Pa" secondAttribute="trailing" id="ean-2t-1Te"/>
                             <constraint firstItem="OG4-P5-hfQ" firstAttribute="leading" secondItem="LTp-Oo-pPz" secondAttribute="leading" id="fkp-xJ-I1p"/>
-                            <constraint firstItem="jLy-BB-aSy" firstAttribute="top" secondItem="vt5-Oi-0jP" secondAttribute="bottom" constant="71" id="hvF-qf-qDB"/>
+                            <constraint firstItem="jLy-BB-aSy" firstAttribute="top" secondItem="vt5-Oi-0jP" secondAttribute="bottom" constant="47" id="hvF-qf-qDB"/>
                             <constraint firstItem="OG4-P5-hfQ" firstAttribute="trailing" secondItem="LTp-Oo-pPz" secondAttribute="trailing" id="oV7-4h-YtH"/>
                             <constraint firstItem="LtT-Nh-A6O" firstAttribute="top" secondItem="1vK-Wh-auk" secondAttribute="bottom" constant="21" id="qCn-X3-anc"/>
                             <constraint firstItem="jLy-BB-aSy" firstAttribute="trailing" secondItem="LtT-Nh-A6O" secondAttribute="trailing" id="qfS-6P-9gd"/>
@@ -292,13 +342,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HfR-CD-DrG">
-                                <rect key="frame" x="279" y="81" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HfR-CD-DrG">
+                                <rect key="frame" x="321" y="81" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LIi-jw-6jC" customClass="MKTextField" customModule="Game_On" customModuleProvider="target">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LIi-jw-6jC" customClass="IsaoTextField" customModule="Game_On" customModuleProvider="target">
                                 <rect key="frame" x="187" y="167" width="227" height="30"/>
                                 <color key="backgroundColor" red="0.26666666666666666" green="0.54117647058823526" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -310,14 +360,28 @@
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="rippleEnabled" value="YES"/>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="backgroundAnimationEnabled" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="inactiveColor">
+                                        <color key="value" red="0.97647058819999999" green="0.94901960780000005" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="activeColor">
+                                        <color key="value" red="0.95686274510000002" green="0.26274509800000001" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yoW-6G-kZm" customClass="MKTextField" customModule="Game_On" customModuleProvider="target">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yoW-6G-kZm" customClass="IsaoTextField" customModule="Game_On" customModuleProvider="target">
                                 <rect key="frame" x="187" y="241" width="227" height="30"/>
                                 <color key="backgroundColor" red="0.26666666666666666" green="0.54117647058823526" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="inactiveColor">
+                                        <color key="value" red="0.97647058819999999" green="0.94901960780000005" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="activeColor">
+                                        <color key="value" red="0.95686274510000002" green="0.26274509800000001" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aqx-fB-Sln" customClass="MKButton" customModule="Game_On" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="507" width="600" height="93"/>
@@ -357,11 +421,11 @@
                                     <action selector="verifyInfo:" destination="sQw-yw-6lV" eventType="touchUpInside" id="R5m-4f-tme"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sIx-I9-daO" customClass="MKLabel" customModule="Game_On" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sIx-I9-daO" customClass="MKLabel" customModule="Game_On" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="15" width="600" height="44"/>
                                 <color key="backgroundColor" red="0.050980392159999999" green="0.2784313725" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <attributedString key="attributedText">
-                                    <fragment content=" Game On">
+                                    <fragment content="Login">
                                         <attributes>
                                             <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <font key="NSFont" size="17" name="HelveticaNeue"/>
@@ -371,11 +435,11 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VCd-vf-TRn" customClass="MKLabel" customModule="Game_On" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VCd-vf-TRn" customClass="MKLabel" customModule="Game_On" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="20"/>
                                 <color key="backgroundColor" red="0.050980392159999999" green="0.2784313725" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="749" id="Zof-s2-gnM"/>
+                                    <constraint firstAttribute="width" constant="600" id="Zof-s2-gnM"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -387,16 +451,16 @@
                             <constraint firstItem="HfR-CD-DrG" firstAttribute="top" secondItem="sIx-I9-daO" secondAttribute="bottom" constant="22" id="0Vc-4i-Kqz"/>
                             <constraint firstItem="yoW-6G-kZm" firstAttribute="leading" secondItem="LIi-jw-6jC" secondAttribute="leading" id="788-hh-Ph8"/>
                             <constraint firstItem="aqx-fB-Sln" firstAttribute="top" secondItem="8gi-OR-Xhm" secondAttribute="bottom" constant="-2" id="E95-4e-Kju"/>
-                            <constraint firstItem="HfR-CD-DrG" firstAttribute="centerX" secondItem="7kD-85-BrK" secondAttribute="centerX" id="GFn-Us-78v"/>
+                            <constraint firstItem="HfR-CD-DrG" firstAttribute="centerX" secondItem="7kD-85-BrK" secondAttribute="centerX" constant="21" id="GFn-Us-78v"/>
                             <constraint firstItem="VCd-vf-TRn" firstAttribute="bottom" secondItem="Cx6-yD-X1c" secondAttribute="bottom" id="MWJ-xK-gVg"/>
                             <constraint firstItem="aqx-fB-Sln" firstAttribute="bottom" secondItem="4SS-fc-G0H" secondAttribute="top" id="QnT-ua-wSR"/>
                             <constraint firstItem="8gi-OR-Xhm" firstAttribute="leading" secondItem="7kD-85-BrK" secondAttribute="leading" id="UeN-uG-auW"/>
                             <constraint firstItem="sIx-I9-daO" firstAttribute="top" secondItem="7kD-85-BrK" secondAttribute="topMargin" constant="15" id="Wc0-ki-xcj"/>
                             <constraint firstItem="yoW-6G-kZm" firstAttribute="trailing" secondItem="LIi-jw-6jC" secondAttribute="trailing" id="XCq-Zx-TV7"/>
                             <constraint firstItem="VCd-vf-TRn" firstAttribute="leading" secondItem="sIx-I9-daO" secondAttribute="leading" id="cwZ-6a-t9q"/>
-                            <constraint firstItem="LIi-jw-6jC" firstAttribute="top" secondItem="HfR-CD-DrG" secondAttribute="bottom" constant="65" id="e0w-UM-83q"/>
+                            <constraint firstItem="LIi-jw-6jC" firstAttribute="top" secondItem="HfR-CD-DrG" secondAttribute="bottom" constant="86" id="e0w-UM-83q"/>
                             <constraint firstItem="8gi-OR-Xhm" firstAttribute="trailing" secondItem="aqx-fB-Sln" secondAttribute="trailing" id="jjK-AF-fHV"/>
-                            <constraint firstItem="HfR-CD-DrG" firstAttribute="leading" secondItem="LIi-jw-6jC" secondAttribute="leading" constant="92" id="nWe-K3-ENk"/>
+                            <constraint firstItem="HfR-CD-DrG" firstAttribute="leading" secondItem="LIi-jw-6jC" secondAttribute="leading" constant="134" id="nWe-K3-ENk"/>
                             <constraint firstItem="yoW-6G-kZm" firstAttribute="top" secondItem="LIi-jw-6jC" secondAttribute="bottom" constant="44" id="qZR-jm-8G7"/>
                             <constraint firstItem="sIx-I9-daO" firstAttribute="leading" secondItem="8gi-OR-Xhm" secondAttribute="leading" id="qh5-2t-yCC"/>
                             <constraint firstItem="VCd-vf-TRn" firstAttribute="top" secondItem="7kD-85-BrK" secondAttribute="top" id="uvU-BB-sQV"/>
@@ -648,7 +712,7 @@
                                     <constraint firstAttribute="height" constant="21" id="uIq-Vp-8M7"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="rippleEnabled" value="YES"/>
@@ -1176,7 +1240,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fOc-Ms-Ihv">
                                 <rect key="frame" x="481" y="32" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -1426,11 +1490,11 @@
         <image name="Image" width="800" height="600"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="3jO-uJ-rjS"/>
+        <segue reference="98z-UZ-2hZ"/>
+        <segue reference="ZYN-c4-Wqm"/>
         <segue reference="Pia-c8-Pub"/>
-        <segue reference="c4f-HS-Y5w"/>
-        <segue reference="8kY-nA-23e"/>
         <segue reference="iRd-IL-HEH"/>
+        <segue reference="8kY-nA-23e"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.98971285990000002" green="0.41608365400000002" blue="0.21570900270000001" alpha="1" colorSpace="calibratedRGB"/>
 </document>
