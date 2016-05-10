@@ -124,6 +124,8 @@ class HostGameViewController: UIViewController, UITableViewDataSource, UITableVi
         
         imagestodisplay.getDataInBackgroundWithBlock { (result, error) in
             cell.gamePic?.image = UIImage(data:result!)
+            
+             
         }
         cell.boardGameName3?.text = gameBoardsArray[indexPath.row]["boardName"] as! String
   

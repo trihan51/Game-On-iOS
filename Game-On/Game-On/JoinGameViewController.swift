@@ -13,8 +13,10 @@ import CoreLocation
 class JoinGameViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,CLLocationManagerDelegate {
     
     var gameNames = [String]()
+    
     var test = ["manny", "sam", "bob"]
-    var gameTypes = ["Monopoly", "Chess", "Settlers of Catan", "Splendor", "Werewolf", "Checkers", "Caverna: The Cave Farmers", "Scrabble", "Twilight Struggle","Terra Mystica", "Puerto Rico", "Eclipse", "Pandemic Legacy: Season 1"]
+    
+    var gameTypes = ["Monopoly", "Chess", "Settlers of Catan", "Splendor", "One Night Ultimate Werewolf", "Checkers", "Caverna: The Cave Farmers", "Scrabble", "Twilight Struggle","Terra Mystica", "Puerto Rico", "Eclipse", "Pandemic Legacy: Season 1"]
     
     var chessArray = [PFObject]()
     var monopolyArray = [PFObject]()
@@ -23,7 +25,7 @@ class JoinGameViewController: UIViewController, UITableViewDelegate, UITableView
     var werewolfArray = [PFObject]()
     var checkersArray = [PFObject]()
     var cavernaArray = [PFObject]()
-      var scrabbleArray = [PFObject]()
+     var scrabbleArray = [PFObject]()
       var twilightArray = [PFObject]()
       var terramysticaArray = [PFObject]()
       var eclipseArray = [PFObject]()
@@ -32,6 +34,7 @@ class JoinGameViewController: UIViewController, UITableViewDelegate, UITableView
     
     
     var chosenSessions = String()
+    
     var timer = NSTimer()
     
      let locationManager = CLLocationManager()
@@ -55,15 +58,19 @@ class JoinGameViewController: UIViewController, UITableViewDelegate, UITableView
         self.werewolfArray = [PFObject]()
         self.checkersArray = [PFObject]()
         self.cavernaArray = [PFObject]()
+       
         self.scrabbleArray = [PFObject]()
         self.terramysticaArray = [PFObject]()
         self.eclipseArray = [PFObject]()
         self.pandemicArray = [PFObject]()
         self.puertoricoArray = [PFObject]()
         self.twilightArray  = [PFObject]()
+        
         self.chosenSessions = String()
         
+        print("working2")
         queryData()
+        print("Workgin3")
         
         dispatch_async(dispatch_get_main_queue())
         {
@@ -85,7 +92,7 @@ class JoinGameViewController: UIViewController, UITableViewDelegate, UITableView
             // tapRecognizer, placed in viewDidLoad
         //longPressRecognizer = UILongPressGestureRecognizer(target: self, action: "longPress:")
         //self.view.addGestureRecognizer(longPressRecognizer)
-        
+        print("working")
         self.splendorArray = [PFObject]()
         
        // queryData()
@@ -109,7 +116,7 @@ class JoinGameViewController: UIViewController, UITableViewDelegate, UITableView
             print ("location not enabled")
         }
 
-        
+        print("working1")
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -463,13 +470,14 @@ class JoinGameViewController: UIViewController, UITableViewDelegate, UITableView
         let defaults = NSUserDefaults.standardUserDefaults()
         let radiusSearch = defaults.doubleForKey("radiusToSearchWithin")
         
+        let currentUser = PFUser.currentUser()
         
         if (radiusSearch != 0)
         {
         var query = PFQuery(className: "GameOnSession")
         query.whereKey("open", equalTo: true)
        query.whereKey("gameTitle", equalTo: thisgame)
-        query.whereKey("host", notEqualTo: PFUser.currentUser()!)
+        query.whereKey("host", notEqualTo: currentUser!)
         query.whereKey("location", nearGeoPoint: usersLocation, withinMiles: radiusSearch)
         do {
             let countOfGamez = try query.findObjects()
@@ -485,10 +493,10 @@ class JoinGameViewController: UIViewController, UITableViewDelegate, UITableView
             var query = PFQuery(className: "GameOnSession")
             query.whereKey("open", equalTo: true)
             query.whereKey("gameTitle", equalTo: thisgame)
-            query.whereKey("host", notEqualTo: PFUser.currentUser()!)
+            query.whereKey("host", notEqualTo: currentUser!)
             do {
                 let countOfGamez = try query.findObjects()
-                print(countOfGamez.count)
+                //print(countOfGamez.count?)
                 return countOfGamez.count
             }catch
             {
@@ -519,7 +527,7 @@ class JoinGameViewController: UIViewController, UITableViewDelegate, UITableView
             cell.boardGameName?.text = oneTwo[indexPath.row]
         
         
-        let numOfGames = oneTwo[indexPath.row]
+       let numOfGames = oneTwo[indexPath.row]
         let thisnumer = queryNumOfgames(numOfGames)
         cell.numParticipants?.text = String(thisnumer)
         
@@ -564,7 +572,7 @@ class JoinGameViewController: UIViewController, UITableViewDelegate, UITableView
         {
             performSegueWithIdentifier("joinGameSegue", sender: self)
         }
-        else if (stringy == "Werewolf")
+        else if (stringy == "One Night Ultimate Werewolf")
         {
         
             performSegueWithIdentifier("joinGameSegue", sender: self)
@@ -635,7 +643,7 @@ class JoinGameViewController: UIViewController, UITableViewDelegate, UITableView
                 vc.passedArray = splendorArray
                 vc.usersLocation = usersLocation
             }
-            else if (chosenSessions == "Werewolf")
+            else if (chosenSessions == "One Night Ultimate Werewolf")
             {
                 vc.passedArray = werewolfArray
                 vc.usersLocation = usersLocation
@@ -672,6 +680,11 @@ class JoinGameViewController: UIViewController, UITableViewDelegate, UITableView
             else if(chosenSessions == "Puerto Rico")
             {
                 vc.passedArray = puertoricoArray
+                vc.usersLocation = usersLocation
+            }
+            else if (chosenSessions == "Settlers of Catan")
+            {
+                vc.passedArray = settlersArray
                 vc.usersLocation = usersLocation
             }
             
@@ -731,7 +744,7 @@ class JoinGameViewController: UIViewController, UITableViewDelegate, UITableView
         }
         if (countGames(werewolfArray) == true)
         {
-            existss.append("Werewolf")
+            existss.append("One Night Ultimate Werewolf")
         }
         if (countGames(settlersArray) == true)
         {
@@ -784,6 +797,13 @@ class JoinGameViewController: UIViewController, UITableViewDelegate, UITableView
         self.werewolfArray = [PFObject]()
         self.checkersArray = [PFObject]()
         self.cavernaArray = [PFObject]()
+       
+        self.scrabbleArray = [PFObject]()
+        self.terramysticaArray = [PFObject]()
+        self.eclipseArray = [PFObject]()
+        self.pandemicArray = [PFObject]()
+        self.puertoricoArray = [PFObject]()
+        self.twilightArray  = [PFObject]()
         self.chosenSessions = String()
         queryData()
         tableView.reloadData()

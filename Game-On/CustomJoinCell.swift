@@ -19,12 +19,14 @@ class CustomJoinCell: MKTableViewCell {
     @IBOutlet weak var numParticipants: UILabel!
     
     @IBOutlet weak var boardGameName3: UILabel!
+    
     @IBOutlet weak var specificSession: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        gamePic.contentMode = .ScaleAspectFill
+         gamePic?.contentMode = .ScaleAspectFill
+       
         
         //initialization code
     }
