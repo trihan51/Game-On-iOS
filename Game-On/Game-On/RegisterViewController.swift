@@ -22,6 +22,7 @@ class RegisterViewController: UIViewController,UITextFieldDelegate{
     @IBOutlet weak var userPassword2: MKTextField!
     
     var passwordNotSameAlert: UIAlertController?
+     var sjsuEmailAlert: UIAlertController?
     
     override func viewDidLoad() {
         self.userFirstName.delegate = self;
@@ -32,6 +33,7 @@ class RegisterViewController: UIViewController,UITextFieldDelegate{
         self.userUsername.delegate = self;
         
         setUpPasswordAlert()
+        setUpSJSUAlert()
         
     }
     
@@ -48,6 +50,19 @@ class RegisterViewController: UIViewController,UITextFieldDelegate{
         
     }
     
+    func setUpSJSUAlert()
+    {
+        
+        sjsuEmailAlert = UIAlertController(title: "Error", message: "Email must be a SJSU email.", preferredStyle: .Alert)
+        
+        let okayAction = UIAlertAction(title: "Okay", style: .Default) { (action) in
+            
+        }
+        
+        sjsuEmailAlert?.addAction(okayAction)
+        
+    }
+    
     @IBAction func verifyRegistrationInfo(sender: AnyObject) {
        
         var email = userEmail.text
@@ -57,13 +72,22 @@ class RegisterViewController: UIViewController,UITextFieldDelegate{
         var lastname = userLastName.text
         var username = userUsername.text
         
+        
         if email != "" && pass1 != "" &&  firstname != "" && lastname != "" && username != "" && pass2 != ""
         {
             //no blank fields, proceed to sign up
-            if (pass1 == pass2)
+            if (pass1 == pass2 && endsWithSJSUEdu(email!))
             {
                 signUp()
-            } else {
+            } else if (endsWithSJSUEdu(email!) == false)
+            {
+                self.presentViewController(sjsuEmailAlert!, animated: true, completion: {
+                  
+
+                })
+
+            }
+            else {
                 self.presentViewController(passwordNotSameAlert!, animated: true, completion: {
                     pass1 = ""
                     pass2 = ""
@@ -76,6 +100,12 @@ class RegisterViewController: UIViewController,UITextFieldDelegate{
         }
         
     }
+    
+    func endsWithSJSUEdu(str : String) -> Bool {
+        let regex = try! NSRegularExpression(pattern: "\\S+(@sjsu\\.edu)$", options: [.CaseInsensitive])
+        return regex.numberOfMatchesInString(str, options: [], range: NSMakeRange(0, str.characters.count)) > 0
+    }
+
     
     func signUp() {
         var email = userEmail.text
