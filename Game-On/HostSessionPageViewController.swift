@@ -126,6 +126,9 @@ class HostSessionPageViewController: UIViewController, UITableViewDelegate, UITa
         
         
     }
+    
+    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         

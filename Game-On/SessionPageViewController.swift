@@ -9,6 +9,7 @@
 import UIKit
 import Parse
 import GoogleMaps
+import MapKit
 
 class SessionPageViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
@@ -136,6 +137,14 @@ class SessionPageViewController: UIViewController, UITableViewDataSource, UITabl
         
     }
     
+    func giveDirections()
+    {
+        let coordinate = CLLocationCoordinate2DMake(hostLocation.latitude,hostLocation.longitude)
+        let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: coordinate, addressDictionary:nil))
+        mapItem.name = "Host's Location"
+        mapItem.openInMapsWithLaunchOptions([MKLaunchOptionsDirectionsModeDriving : MKLaunchOptionsDirectionsModeKey])
+    }
+    
     func setUpAlertClosedSession()
     {
         closedSessionController = UIAlertController(title: "Sorry!", message: "The host cancelled the session.", preferredStyle: .Alert)
@@ -160,8 +169,8 @@ class SessionPageViewController: UIViewController, UITableViewDataSource, UITabl
         sessionStartedController = UIAlertController(title: "Game-On", message: "The game has started!", preferredStyle: .Alert)
         
         
-        let doneAction = UIAlertAction(title: "Okay", style: .Default) { (action) in
-            print("Done Pressed")
+        let doneAction = UIAlertAction(title: "Directions please!", style: .Default) { (action) in
+           self.giveDirections()
             
             self.performSegueWithIdentifier("sessionClosedGoHome", sender: self)
             
